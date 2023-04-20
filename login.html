@@ -1,0 +1,78 @@
+<?php
+session_start();
+include("classes\connect.php");
+include("classes\signin.php");
+$password='';
+$email='';
+
+
+if($_SERVER['REQUEST_METHOD']=='POST'){
+  $signin= new Signin();
+  $result=$signin->login($_POST);
+if($result!=''){
+  echo $result;
+} 
+else{
+  header("Location:index.html");
+die;
+}
+$email=$_POST['email1'];
+$password=$_POST['password1'];
+}
+?>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="logIn.css" rel="stylesheet" />
+    <title>Log in</title>
+  </head>
+  <body>
+
+<div class ="mid">
+  <img src="images\logo.jpg" alt="logo" />
+  <br /><br /><br />
+<h2>Log in</h2>
+<br />
+<form action="" method="post" name="register">
+  <a href=""
+    ><button type="submit" name="submit" id="Btn1">Log in with facebook</button></a
+  >
+  <br /> <br />
+  <hr />
+  <br /> 
+  <input type="email" name="email1" placeholder="&nbsp;&nbsp;Email" id="text" required/>
+  <br /><br />
+
+  <input
+    type="password"
+    name="password1"
+    placeholder="&nbsp;&nbsp;Password"
+    minlength="8"
+    maxlength="50"
+    id="text"
+    required
+  />
+  <br /><br />
+  <input type="checkbox" name="Remember" value="Remember" />
+  <label>Remember me</label>
+  <br /><br />
+  <a href="" align="right">Forgot Password?</a>
+  <br /><br />
+  <!-- <a href="index.html"> -->
+  <button type="submit" name="submit" id="Btn">
+    Log in</a>
+  </button>
+  <br />
+</form>
+<br />
+<hr />
+<br />
+Don't have an account?<br /> <br /><a href="signup.html">Sign Up</a>
+
+<br /><br />
+</div>
+  </body>
+</html>

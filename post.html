@@ -1,0 +1,348 @@
+<?php
+session_start();
+include("classes\connect.php");
+include("classes\post.php");
+
+$id=$_SESSION['placeholder_userid'];
+  if($id!=''){
+if($_SERVER['REQUEST_METHOD']=='POST'){
+ 
+  
+  if(isset($_SESSION['placeholder_userid'])&&is_numeric($_SESSION['placeholder_userid']))
+{
+  $post= new Post();
+  $post->createUser($_POST);
+  
+  echo "<pre>";
+    print_r($_POST);
+    print_r($_FILES);
+    echo "</pre>";
+    $error='';
+    if(isset($_FILES['photo']['name'])&&  $_FILES['photo']['name']!=''){
+    $filename='uploads/' .$_FILES['photo']['name'];
+    move_uploaded_file($_FILES['photo']['tmp_name'],$filename);
+    if(file_exists($filename)){
+
+      $query ="update post set image= '$filename' where user_id='$id'";
+      $DB=new Database();
+      $DB->insert($query);
+
+    }
+    } 
+    else{
+$error='enter a valid photo';
+echo $error;
+    }
+  header("Location:index.html");
+ die;
+  
+}
+}
+
+}
+else{
+  header("Location:login.html");
+  die;
+}
+?>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>post a job</title>
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="post.css" />
+
+    <script src="https://kit.fontawesome.com/6bed12e9d5.js" crossorigin="anonymous"></script>
+
+  </head>
+  <body>
+    
+    <header >
+      <nav class="nav-bar" id="nav">
+        <div class="logo-and-search-bar">
+          <div class="logo">
+            <div class="logo-image">
+              <a href=""><img width="20px" height="10px"
+                src="images/logo.jpg" alt="logo" /></a>
+            </div>
+            <!-- <div class="logo-text"><span>placeholder</span></div> -->
+          </div>
+          <div class="sign">
+           
+            <span class="sign-link">
+              <i class="fa-solid fa-right-to-bracket"></i>
+              <a href="logout.php">Sign Out</a></span>
+            <span class="sign-link">
+              <a href="post.html"><button class="post">Post Jobs</button></a></span>
+          </div>
+          
+        </div>
+        <div class="nav-links ">
+          <ul>
+            <li>
+              <i class="fa-solid fa-user"></i>
+              <a href="profile.html"><span>Profile</span> </a>
+            </li>
+            
+            
+            <li>
+              
+            <i class="fa-solid fa-house"></i>
+            <!-- <a href="" class="link">Home</a> -->
+              <a href="index.html"><span>Home</span> </a>
+            </li>
+            <li>
+              <i class="fa-solid fa-user-doctor"></i>
+              <a href="job.html"><span>Jobs</span></a>
+            </li>
+            <li>
+              <i class="fa-regular fa-address-card"></i>
+              <a href="about.html"><span>About</span></a>
+            </li>
+          </ul>
+          <div>
+            <i id="colapse" class="fas fa-layer-groupfas fa-layer-group" >colapse</i>
+          <!-- <button id="colapse">col</button> -->
+        </div>
+      </nav>
+      
+    </header>
+    
+
+    <!-- <div class="main"> -->
+    <section class="container">
+      <h3>Post a Job</h3>
+      <form method="post" name="post-a-job" class="form" enctype="multipart/form-data">
+       
+        <div class="input-box">
+        <lable>Job Title</lable
+        >
+        <input type="text" placeholder="" name="job_title" />
+        
+        
+      </div>
+
+      <div class="input-box">
+        <lable>Job Type</lable
+        >
+        <input type="text" placeholder="" name="job_type"/>
+        
+        
+      </div>
+
+      <div class="input-box">
+        <lable>Work Location</lable
+        >
+        <input type="text" placeholder="" name="work_location"/>
+
+      </div>
+
+      <div class="input-box">
+        <lable>Vacancies</lable
+        >
+        <input type="number" placeholder="" name="vacancies" />
+        
+        
+      </div>
+<br>
+      <div class="photo">
+        <label>Photo</label>
+        <br><br>
+        <input type="file" name="photo" placeholder="" />
+      </div>
+
+      <div class="gender-box">
+        <h3>Needed</h3>
+        <div class="gender-option">
+          <div class="gender">
+            <input type="radio" id="check-male" name="gender" checked value="male"/>
+            <label for="check-male">male</label>
+          </div>
+          <div class="column">
+            <div class="gender">
+              <input type="radio" id="check-female" name="gender" value="female" />
+              <label for="check-female">Female</label>
+            </div>
+          </div>
+
+          <div class="column">
+            <div class="gender">
+              <input type="radio" id="check-female" name="gender" value="both" />
+              <label for="check-both">both</label>
+            </div>
+          </div>
+        </div>
+
+
+      
+      <br>
+      <lable>Work Experiance</lable
+        >
+        <br>
+
+      <div class="select-box">
+        <select name="work_exp" >
+          <option hidden></option>
+          <option>0+</option>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5+</option>
+          <option>10+</option>
+        </select>
+        
+        
+      </div>
+
+      <div class="input-box">
+        <lable>Salary</lable
+        >
+        <input type="text" placeholder="" name="salary"/>
+        
+        
+      </div>
+
+      <div class="input-box">
+        <lable>Closed date</lable
+        >
+        <input type="text" placeholder="" name="closed" />
+        
+        
+      </div>
+    
+      <div class="box">
+        <button>Post</button>
+      </div>
+        <!-- <button type="submit" name="submit">submit</button> -->
+      
+      </form>
+     
+    </section>
+    
+
+  <!-- </div> -->
+  <footer>
+    <div class="footer">
+      <div class="contacts">
+        <a href="https://www.facebook.com"><img height="36" width="36" src="images/th (3).png" alt="logo"></a>
+        <a href="https://www.youtube.com"><img height="36" width="36" src="images/th (2).png" alt="logo"></a>
+        <a href="https://www.twitter.com"><img height="36" width="36" src="images/th (1).png" alt="logo"></a> 
+        <a href="https://www.instagram.com"><img height="36" width="36" src="images/th.png" alt="logo"></a>
+        
+      </div>
+      <hr class="hid">
+    
+      <div class="about-terms">
+        <div class="about">
+          <p>
+            <h3 id="about">FAQ</h3>
+            <p><a href="About.html">How do i register?</a></p>
+            <p><a href="About.html">How to apply for a job?</a></p>
+            <p><a href="About.html">How do I reset my password?</a></p> 
+            <p><a href="About.html">how do i edit my cv?</a></p>
+            <p><a href="About.html">how do i get notification?</a></p>
+            <p><a href="About.html">what makes this platform different?</a></p>
+          </p>
+          <hr class="hid">
+        </div>
+          <div class="about">
+            <p>
+              <h3 id="about">About</h3>
+              <p><a href="About.html">About us</a></p>
+              <p><a href="About.html">how it works</a></p>
+              <p><a href="About.html">Careers</a></p>
+              <p><a href="About.html">accessibility</a></p>
+              <p><a href="About.html">advertising</a></p>
+            </p>
+            <hr class="hid">
+          </div>
+          <div class="terms">
+            <p>
+              <h3 id="terms">Terms</h3>
+              <p><a href="terms.html">Privacy Policy</a></p>
+              <p><a href="terms.html"> Terms and Conditions</a></p>
+              <p><a href="terms.html"> Copyright Policy</a></p>
+              <p><a href="terms.html"> Code of Conduct</a></p>
+              <!-- <p><a href=""><font color="azure"> Fees and Charges</font></a></p> -->
+          </p>
+          <hr class="hid">
+  
+          </div>
+          <div class="about">
+            <p>
+              <h3 id="about">contact us</h3>
+              <p><a href="About.html">aastugroup1@gmail.com</a></p>
+              <p><a href="About.html">+251953101912</a></p>
+              <p><a href="About.html"> AASTU, Tulu Dimtu, Addis Ababa, Ethiopia</a></p>
+            </p>
+            <hr class="hid">
+          </div>
+      </div>
+  
+      <!-- the second row of footer page  -->
+      <div class="about-terms">
+        <div class="about">
+          <p>
+            <h3 id="about">Job seekers</h3>
+            <p><a href="About.html">Find Jobs</a></p>
+            <p><a href="About.html">Register</a></p>
+            <p><a href="About.html">post CV</a></p>
+            <p><a href="About.html">Job Alerts</a></p>
+          </p>
+          <hr class="hid">
+        </div>
+        <div class="about">
+          <p>
+            <h3 id="about">Employers</h3>
+            <p><a href="About.html">Log in</a></p>
+            <p><a href="About.html">Register</a></p>
+            <p><a href="About.html">post Jobs</a></p>
+            <p><a href="About.html">services</a></p>
+          </p>
+          <hr class="hid">
+        </div>
+          <div class="terms">
+            <p>
+              <h3 id="terms">work with us</h3>
+              <p><a href="terms.html">Contact Admin</a></p>
+              <p><a href="terms.html">Become partner</a></p>
+              <p><a href="terms.html"> Explor</a></p>
+              <p><a href="terms.html"> Code of Conduct</a></p>
+              <!-- <p><a href=""><font color="azure"> Fees and Charges</font></a></p> -->
+          </p>
+          <hr class="hid">
+  
+          </div>
+          <div class="about">
+            <p>
+              <h3 id="about">useful links</h3>
+              <p><a href="About.html">ehio job</a></p>
+              <p><a href="About.html">alibaba</a></p>
+              <p><a href="About.html">freelancers</a></p>
+              <p><a href="About.html">remote work</a></p>
+            </p>
+            <hr class="hid">
+          </div>
+         
+          
+      </div>
+      <!-- up to here -->
+      <div class="copyright">
+        <p> 
+          Placeholder ® is a registered Trademark of Placeholder Technology Pty Limited ()
+        </p>
+        <p>
+          Copyright &copy; 2022 Placeholder Technology Pty Limited ()
+        </p>
+      </div>
+    </div>
+  </footer>
+  <script src="app.js"></script>
+  </body>
+</html>
