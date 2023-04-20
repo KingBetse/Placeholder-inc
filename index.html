@@ -37,6 +37,8 @@ else{
 }
 
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -45,61 +47,61 @@ else{
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
    
     <title>Home</title>
-    <link rel="stylesheet" href="home.css"/>
+    <link rel="stylesheet" href="styles/home.css"/>
 
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="styles/style.css" />
 
-    <!-- <link rel="stylesheet" href="heme.css"/>
+    <!-- <link rel="stylesheet" href="heme.css"/> -->
 
-    <script src="https://kit.fontawesome.com/6bed12e9d5.js" crossorigin="anonymous"></script> -->
+    <script src="https://kit.fontawesome.com/6bed12e9d5.js" crossorigin="anonymous"></script>
   </head>
   <body>
+
+
+  
     <!-- the header section  -->
-    <header style="display:none;">
-      <!-- the header container div -->
-      <div class="nav-bar"> 
-          <!-- the logo div -->
-          <div class="search">
-            <input type="text" name="" id="" placeholder="Search here a Job">
-            <button class="search-button">Search</button>
-          </div>
-          <!-- the pages div home, jobs, About and profile -->
-          <div class="nav-bar-links">
-            <i class="fa-solid fa-house"><a href="" class="link">Home</a></i>
-            <i class="fa-solid fa-user-doctor"><a href="job.html" class="link">Jobs</a></i>
-            <i class="fa-regular fa-address-card"><a href="about.html" class="link">About</a></i>
-            <i class="fa-solid fa-user"><a href="profile.html" class="link">Profile</a></i>
-          </div>
-          <!-- log out and post a job section -->
-          <div class="nav-bar-registration">
-            <i class="fa-solid fa-right-to-bracket"><a class="log-in-button" href="logout.php">log Out</a></i>
-              <a href="" class="link">+Post a job</a>
-          </div>
-      </div>
-    </header>
+   
     <div id="back-to-top">
       <a href="#top"><img src="images/top.jpg" alt="top"
         height="10px"width="10px"> </a>
     </div>
-    <header >
+
+    <header>
       <nav class="nav-bar" id="nav">
         <div class="logo-and-search-bar">
           <div class="logo">
             <div class="logo-image">
-              <a href=""><img width="20px" height="10px"
-                src="images/logo.jpg" alt="logo" /></a>
+              <a href=""><img width="20px" height="10px" src="images/logo.jpg" alt="logo" /></a>
             </div>
             <!-- <div class="logo-text"><span>placeholder</span></div> -->
           </div>
           <div class="sign">
-            <span class="sign-link">
-              <i class="fa-solid fa-right-to-bracket"></i>
-              <a href="logout.php">Log out</a></span>
+            <!-- <span class="sign-link">
+                <i class="fa-solid fa-right-to-bracket"></i>
+                <a href="login.html">Log out</a></span> -->
             
+  
             <span class="sign-link">
               <a href="post.html"><button class="post">Post Jobs</button></a></span>
+  
+              <span class="profile-section">
+                <img id="profile-picture" width='65px' height='50px' src="img/abel.jpg" title='test'alt="profile">
+  
+                <div class="more">
+                  
+                  <span class="sign-link">
+                    <i class="fa-solid fa-right-to-bracket"></i>
+                    <a href="signup.html">log out</a></span>
+  
+                    
+                    <span class="sign-link">
+                      <i class="fa-solid fa-left-to-bracket"></i>
+                      <a href="signup.html">settings</a></span>
+                </div>
+  
+              </span>
           </div>
-          
+  
         </div>
         <div class="nav-links ">
           <ul>
@@ -107,12 +109,12 @@ else{
               <i class="fa-solid fa-user"></i>
               <a href="profile.html"><span>Profile</span> </a>
             </li>
-            
-            
+  
+  
             <li>
-              
-            <i class="fa-solid fa-house"></i>
-            <!-- <a href="" class="link">Home</a> -->
+  
+              <i class="fa-solid fa-house"></i>
+              <!-- <a href="" class="link">Home</a> -->
               <a href="index.html"><span>Home</span> </a>
             </li>
             <li>
@@ -125,10 +127,11 @@ else{
             </li>
           </ul>
           <div>
-            <i id="colapse" class="fas fa-layer-groupfas fa-layer-group" >colapse</i>
-          <!-- <button id="colapse">col</button> -->
-        </div>
-      </nav> 
+            <i id="colapse" class="fas fa-layer-groupfas fa-layer-group">colapse</i>
+            <!-- <button id="colapse">col</button> -->
+          </div>
+      </nav>
+  
     </header>
 
 
@@ -276,19 +279,43 @@ else{
 <div class="test">
   <i class='fa fa-arrow-left' onclick="rights()" ></i>
   <i class='fa fa-arrow-right' onclick="lefts()" ></i>
-
- <?php
- if($posts){
-
-foreach($posts as $row){
-    $user= new User();
-    $row_user=  $user->get_user($row['user_id']);
-      include("ind_post.php ");
+  
+  <?php
+  if($posts){
+ 
+ foreach($posts as $row){
+     $user= new User();
+     $row_user=  $user->get_user($row['user_id']);
+       include("ind_post.php ");
+   }
   }
- }
- ?>
- 
- 
+  ?>
+
+
+  <div class="job-container">
+        <div class="job-card">
+          <div>
+           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRKdzUhdrYISPKPLpvkEHdwX40eEWdRf-PXtsf-6I3ng&s" alt="">
+          </div>
+          <div>
+           <h4>description:</h4>
+           <ul>
+             <li>job title: banker</li>
+             <li>Job type: permanent</li>
+             <li>work location: addis Ababa</li>
+             <li>vacancies: 1</li>
+             <li>applicangs Nedded: male/female</li>
+             <li>work experiance: 0+ year</li>
+             <li>initial salary:7,000</li>
+             <li>verified campany</li>
+             <p>application will be closed on 24<sup>th</sup> jan 2025</p>
+           </ul>
+          </div>
+          <div>
+           <button>today</button>
+           <button>apply</button>
+          </div>
+       </div>
        <div class="job-card">
         <div>
          <img src="data:image/jpeg;base64,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" alt="">

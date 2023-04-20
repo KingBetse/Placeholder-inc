@@ -45,6 +45,8 @@ else{
   die;
 }
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -53,34 +55,49 @@ else{
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>post a job</title>
-
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="post.css" />
-
+    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="styles/post.css" />
     <script src="https://kit.fontawesome.com/6bed12e9d5.js" crossorigin="anonymous"></script>
 
   </head>
   <body>
     
-    <header >
+    <header>
       <nav class="nav-bar" id="nav">
         <div class="logo-and-search-bar">
           <div class="logo">
             <div class="logo-image">
-              <a href=""><img width="20px" height="10px"
-                src="images/logo.jpg" alt="logo" /></a>
+              <a href=""><img width="20px" height="10px" src="images/logo.jpg" alt="logo" /></a>
             </div>
             <!-- <div class="logo-text"><span>placeholder</span></div> -->
           </div>
           <div class="sign">
-           
-            <span class="sign-link">
-              <i class="fa-solid fa-right-to-bracket"></i>
-              <a href="logout.php">Sign Out</a></span>
+            <!-- <span class="sign-link">
+                <i class="fa-solid fa-right-to-bracket"></i>
+                <a href="login.html">Log out</a></span> -->
+            
+  
             <span class="sign-link">
               <a href="post.html"><button class="post">Post Jobs</button></a></span>
+  
+              <span class="profile-section">
+                <img id="profile-picture" width='65px' height='50px' src="img/abel.jpg" title='test'alt="profile">
+  
+                <div class="more">
+                  
+                  <span class="sign-link">
+                    <i class="fa-solid fa-right-to-bracket"></i>
+                    <a href="signup.html">log out</a></span>
+  
+                    
+                    <span class="sign-link">
+                      <i class="fa-solid fa-left-to-bracket"></i>
+                      <a href="signup.html">settings</a></span>
+                </div>
+  
+              </span>
           </div>
-          
+  
         </div>
         <div class="nav-links ">
           <ul>
@@ -88,12 +105,12 @@ else{
               <i class="fa-solid fa-user"></i>
               <a href="profile.html"><span>Profile</span> </a>
             </li>
-            
-            
+  
+  
             <li>
-              
-            <i class="fa-solid fa-house"></i>
-            <!-- <a href="" class="link">Home</a> -->
+  
+              <i class="fa-solid fa-house"></i>
+              <!-- <a href="" class="link">Home</a> -->
               <a href="index.html"><span>Home</span> </a>
             </li>
             <li>
@@ -106,114 +123,84 @@ else{
             </li>
           </ul>
           <div>
-            <i id="colapse" class="fas fa-layer-groupfas fa-layer-group" >colapse</i>
-          <!-- <button id="colapse">col</button> -->
-        </div>
+            <i id="colapse" class="fas fa-layer-groupfas fa-layer-group">colapse</i>
+            <!-- <button id="colapse">col</button> -->
+          </div>
       </nav>
-      
+  
     </header>
-    
+  
 
     <!-- <div class="main"> -->
     <section class="container">
       <h3>Post a Job</h3>
-      <form method="post" name="post-a-job" class="form" enctype="multipart/form-data">
+      <form action="get" name="post-a-job" class="form">
        
         <div class="input-box">
-        <lable>Job Title</lable
+        <lable>Choose a name for your project</lable
         >
-        <input type="text" placeholder="" name="job_title" />
-        
+        <input type="text" placeholder="e.g. Build me website" />
         
       </div>
-
       <div class="input-box">
-        <lable>Job Type</lable
-        >
-        <input type="text" placeholder="" name="job_type"/>
-        
-        
-      </div>
-
-      <div class="input-box">
-        <lable>Work Location</lable
-        >
-        <input type="text" placeholder="" name="work_location"/>
-
-      </div>
-
-      <div class="input-box">
-        <lable>Vacancies</lable
-        >
-        <input type="number" placeholder="" name="vacancies" />
-        
-        
-      </div>
-<br>
-      <div class="photo">
-        <label>Photo</label>
+        <lable>Tell us more about your project </lable>
         <br><br>
-        <input type="file" name="photo" placeholder="" />
-      </div>
-
-      <div class="gender-box">
-        <h3>Needed</h3>
-        <div class="gender-option">
-          <div class="gender">
-            <input type="radio" id="check-male" name="gender" checked value="male"/>
-            <label for="check-male">male</label>
-          </div>
-          <div class="column">
-            <div class="gender">
-              <input type="radio" id="check-female" name="gender" value="female" />
-              <label for="check-female">Female</label>
-            </div>
-          </div>
-
-          <div class="column">
-            <div class="gender">
-              <input type="radio" id="check-female" name="gender" value="both" />
-              <label for="check-both">both</label>
-            </div>
-          </div>
-        </div>
-
-
-      
-      <br>
-      <lable>Work Experiance</lable
+        <textarea
+          rows="4"
+          cols="50"
+          name="comment"
+          form=""
+          placeholder="Describe your project"
         >
-        <br>
-
-      <div class="select-box">
-        <select name="work_exp" >
+        </textarea>
+      </div>
+        
+        <div class="input-box">
+        <label>Pay per Hour</label>
+        <input
+          type="number"
+          min="3"
+          name="age"
+          placeholder="Minimum $3 per hour"
+        />
+      </div>
+        <div class="input-box">
+        <label>Time alloted</label>
+        <input
+          type="number"
+          min="18"
+          max="130"
+          name="age"
+          placeholder="Min 18 hrs"
+        />
+      </div>
+      <div class="select">
+      <label>Educational requiment</label>
+          <div class="select-box">
+        
+        <select >
           <option hidden></option>
-          <option>0+</option>
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5+</option>
-          <option>10+</option>
+          <option value="">highschool</option>
+          <option value="">undergraduate</option>
+          <option value="">postgraduate</option>
         </select>
-        
-        
       </div>
-
-      <div class="input-box">
-        <lable>Salary</lable
-        >
-        <input type="text" placeholder="" name="salary"/>
-        
-        
-      </div>
-
-      <div class="input-box">
-        <lable>Closed date</lable
-        >
-        <input type="text" placeholder="" name="closed" />
-        
-        
+    </div>
+      <div class="skills">
+        <lable>Skills Requirements </lable>
+        <div class="column">
+        <div class="items"><label > Web Development </label>
+          <input type="checkbox" name="skills" value="webdevelopment" />
+  </div>
+        <div class="items"> <label > Accounting </label>
+          <input type="checkbox" name="skills" checkedvalue="accounting" /></div>
+        <div class="items"><label >Sales </label>
+          <input type="checkbox" name="skills" value="sales" /></div>
+        <div class="items"><label >Law </label>
+          <input type="checkbox" name="skills" value="law" /></div>
+        <div class="items"><label>Other </label>
+          <input type="checkbox" name="skills" value="other" /></div>
+        </div>
       </div>
     
       <div class="box">

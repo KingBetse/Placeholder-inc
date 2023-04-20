@@ -49,288 +49,309 @@ else{
 
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>profile</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="profile.css" />
-    <script src="https://kit.fontawesome.com/6bed12e9d5.js" crossorigin="anonymous"></script>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  </head>
-  <body>
-    
-    <header >
-      <nav class="nav-bar" id="nav">
-        <div class="logo-and-search-bar">
-          <div class="logo">
-            <div class="logo-image">
-              <a href=""><img width="20px" height="10px"
-                src="images/logo.jpg" alt="logo" /></a>
-            </div>
-            <!-- <div class="logo-text"><span>placeholder</span></div> -->
+  <title>profile</title>
+  <link rel="stylesheet" href="styles/style.css" />
+  <link rel="stylesheet" href="styles/profile.css" />
+  <script src="https://kit.fontawesome.com/6bed12e9d5.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+  <header>
+    <nav class="nav-bar" id="nav">
+      <div class="logo-and-search-bar">
+        <div class="logo">
+          <div class="logo-image">
+            <a href=""><img width="20px" height="10px" src="images/logo.jpg" alt="logo" /></a>
           </div>
-          <div class="sign">
-            <span class="sign-link">
-              <i class="fa-solid fa-right-to-bracket"></i>
-              <a href="logout.php">Log out</a></span>
-  
-            <span class="sign-link">
-              <a href="post.html"><button class="post">Post Jobs</button></a></span>
-          </div>
-          
+          <!-- <div class="logo-text"><span>placeholder</span></div> -->
         </div>
-        <div class="nav-links ">
-          <ul>
-            <li>
-              <i class="fa-solid fa-user"></i>
-              <a href="profile.html"><span>Profile</span> </a>
-            </li>
-            
-            
-            <li>
-              
+        <div class="sign">
+          <!-- <span class="sign-link">
+              <i class="fa-solid fa-right-to-bracket"></i>
+              <a href="login.html">Log out</a></span> -->
+          
+
+          <span class="sign-link">
+            <a href="post.html"><button class="post">Post Jobs</button></a></span>
+
+            <span class="profile-section">
+              <img id="profile-picture" width='65px' height='50px' src="img/abel.jpg" title='test'alt="profile">
+
+              <div class="more">
+                
+                <span class="sign-link">
+                  <i class="fa-solid fa-right-to-bracket"></i>
+                  <a href="signup.html">log out</a></span>
+
+                  
+                  <span class="sign-link">
+                    <i class="fa-solid fa-left-to-bracket"></i>
+                    <a href="signup.html">settings</a></span>
+              </div>
+
+            </span>
+        </div>
+
+      </div>
+      <div class="nav-links ">
+        <ul>
+          <li>
+            <i class="fa-solid fa-user"></i>
+            <a href="profile.html"><span>Profile</span> </a>
+          </li>
+
+
+          <li>
+
             <i class="fa-solid fa-house"></i>
             <!-- <a href="" class="link">Home</a> -->
-              <a href="index.html"><span>Home</span> </a>
-            </li>
-            <li>
-              <i class="fa-solid fa-user-doctor"></i>
-              <a href="job.html"><span>Jobs</span></a>
-            </li>
-            <li>
-              <i class="fa-regular fa-address-card"></i>
-              <a href="about.html"><span>About</span></a>
-            </li>
-          </ul>
-          <div>
-            <i id="colapse" class="fas fa-layer-groupfas fa-layer-group" >colapse</i>
+            <a href="index.html"><span>Home</span> </a>
+          </li>
+          <li>
+            <i class="fa-solid fa-user-doctor"></i>
+            <a href="job.html"><span>Jobs</span></a>
+          </li>
+          <li>
+            <i class="fa-regular fa-address-card"></i>
+            <a href="about.html"><span>About</span></a>
+          </li>
+        </ul>
+        <div>
+          <i id="colapse" class="fas fa-layer-groupfas fa-layer-group">colapse</i>
           <!-- <button id="colapse">col</button> -->
         </div>
-      </nav>
-      
-    </header>
-    
-<section class="container">
-      <h3>Profile</h3>
-  <form action="#" class="form" method="post" enctype="multipart/form-data">
-    <div class="input-box">
-      <label>First Name</label>
-      <input type="text" name='firstName'placeholder="Enter full name" required />
-    </div>
-    <div class="input-box">
-      <label>Last Name</label>
-      <input type="text" name='lastName' placeholder="Enter full name" required />
-    </div>
-    
- 
+    </nav>
+
+  </header>
+
+  <section class="container">
+    <h3>Profile</h3>
+    <form action="#" class="form">
+      <div class="input-box">
+        <label>First Name</label>
+        <input name="firstName" type="text" placeholder="Enter First name" required />
+      </div>
+      <div class="input-box">
+        <label>Last Name</label>
+        <input name="lastName" type="text" placeholder="Enter Last name" required />
+      </div>
+
+      <!-- <div class="input-box">
+        <label>Email Address</label>
+        <input type="text" placeholder="Enter email address" required />
+      </div> -->
+
+
       <div class="input-box">
         <label>Phone Number</label>
-        <input type="number" name='phoneNum' placeholder="Enter phone number" required />
+        <input name="phoneNum"  type="number" placeholder="Enter phone number" required />
       </div>
       <div class="input-box">
         <label>Birth Date</label>
-        <input type="date"  name='birthDate' placeholder="Enter birth date" required />
+        <input name="birthDate" type="date" placeholder="Enter birth date" required />
       </div>
-    
-    <div class="gender-box">
-      <h3>Gender</h3>
-      <div class="gender-option">
-        <div class="gender">
-          <input type="radio" id="check-male" name="gender" checked value="male"/>
-          <label for="check-male">male</label>
-        </div>
-        <div class="column">
+
+      <div class="gender-box">
+        <h3>Gender</h3>
+        <div class="gender-option">
           <div class="gender">
-            <input type="radio" id="check-female" name="gender" value="female" />
-            <label for="check-female">Female</label>
+            <input type="radio" id="check-male" name="gender" checked />
+            <label for="check-male">male</label>
+          </div>
+          <div class="column">
+            <div class="gender">
+              <input type="radio" id="check-female" name="gender" />
+              <label for="check-female">Female</label>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="column">
-        <div class="select-box">
-          <select name="education">
-            <option hidden>Education</option>
-            <option >Highschool</option>
-            <option >Undergraduate</option>
-            <option >Postgraduate</option>
-          </select>
-        </div>
-
-        <div class="select-box">
-          <select name="country">
-            <option hidden>Country</option>
-            <option>Ethiopia</option>
-            <option>America</option>
-            <option>Japan</option>
-            <option>India</option>
-            <option>Nepal</option>
-          </select>
-        </div>
-      </div>
-      <div class="photo">
-        <h3>Photo</h3>
-        <input type="file" name="photo" placeholder="" />
-      </div>
-
-      <div class="skills">
-        <h3 for="">Skills</h3>
         <div class="column">
-          <div class="items">
-            <lable> Web Development </lable>
-            <input type="checkbox" name="skills" value="webdevelopment" value="Web Development"/>
+          <div class="select-box">
+            <select name="education">
+              <option hidden>Education</option>
+              <option value="">Highschool</option>
+              <option value="">Undergraduate</option>
+              <option value="">Postgraduate</option>
+            </select>
           </div>
-          <div class="items">
-            <label> Accounting </label>
-            <input
-              type="checkbox"
-              name="skills"
-              checkedvalue="accounting"
-              value="Accounting "
-            />
+
+          <div class="select-box">
+            <select name="country">
+              <option hidden>Country</option>
+              <option>Ethiopia</option>
+              <option>America</option>
+              <option>Japan</option>
+              <option>India</option>
+              <option>Nepal</option>
+            </select>
           </div>
-          <div class="items">
-            <label>Accounting  </label>
-            <input type="checkbox" name="skills" value="sales" />
-          </div>
-          <div class="items">
-            <label>Law </label>
-            <input type="checkbox" name="skills" value="law" />
-          </div>
-          <div class="items">
-            <label>Other </label>
-            <input type="checkbox" name="skills" value="other" />
+        </div>
+        <div class="photo">
+          <h3>Photo</h3>
+          <input name="photo" type="file" name="name" placeholder="" />
+        </div>
+
+        <div class="skills">
+          <h3 for="">Skills</h3>
+          <div class="column">
+            <div class="items">
+              <lable> Web Development </lable>
+              <input type="checkbox" name="skills" value="webdevelopment" />
+            </div>
+            <div class="items">
+              <label> Accounting </label>
+              <input type="checkbox" name="skills" checkedvalue="accounting" />
+            </div>
+            <div class="items">
+              <label>Sales </label>
+              <input type="checkbox" name="skills" value="sales" />
+            </div>
+            <div class="items">
+              <label>Law </label>
+              <input type="checkbox" name="skills" value="law" />
+            </div>
+            <div class="items">
+              <label>Other </label>
+              <input type="checkbox" name="skills" value="other" />
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <button>Submit</button>
-  </form>
-</section> 
-    
+      <button>Submit</button>
+    </form>
+  </section>
 
-    
-<footer>
-  <div class="footer">
-    <div class="contacts">
-      <a href="https://www.facebook.com"><img height="36" width="36" src="images/th (3).png" alt="logo"></a>
-      <a href="https://www.youtube.com"><img height="36" width="36" src="images/th (2).png" alt="logo"></a>
-      <a href="https://www.twitter.com"><img height="36" width="36" src="images/th (1).png" alt="logo"></a> 
-      <a href="https://www.instagram.com"><img height="36" width="36" src="images/th.png" alt="logo"></a>
-      
-    </div>
-    <hr class="hid">
-  
-    <div class="about-terms">
-      <div class="about">
-        <p>
+
+
+  <footer>
+    <div class="footer">
+      <div class="contacts">
+        <a href="https://www.facebook.com"><img height="36" width="36" src="images/th (3).png" alt="logo"></a>
+        <a href="https://www.youtube.com"><img height="36" width="36" src="images/th (2).png" alt="logo"></a>
+        <a href="https://www.twitter.com"><img height="36" width="36" src="images/th (1).png" alt="logo"></a>
+        <a href="https://www.instagram.com"><img height="36" width="36" src="images/th.png" alt="logo"></a>
+
+      </div>
+      <hr class="hid">
+
+      <div class="about-terms">
+        <div class="about">
+          <p>
           <h3 id="about">FAQ</h3>
           <p><a href="About.html">How do i register?</a></p>
           <p><a href="About.html">How to apply for a job?</a></p>
-          <p><a href="About.html">How do I reset my password?</a></p> 
+          <p><a href="About.html">How do I reset my password?</a></p>
           <p><a href="About.html">how do i edit my cv?</a></p>
           <p><a href="About.html">how do i get notification?</a></p>
           <p><a href="About.html">what makes this platform different?</a></p>
-        </p>
-        <hr class="hid">
-      </div>
+          </p>
+          <hr class="hid">
+        </div>
         <div class="about">
           <p>
-            <h3 id="about">About</h3>
-            <p><a href="About.html">About us</a></p>
-            <p><a href="About.html">how it works</a></p>
-            <p><a href="About.html">Careers</a></p>
-            <p><a href="About.html">accessibility</a></p>
-            <p><a href="About.html">advertising</a></p>
+          <h3 id="about">About</h3>
+          <p><a href="About.html">About us</a></p>
+          <p><a href="About.html">how it works</a></p>
+          <p><a href="About.html">Careers</a></p>
+          <p><a href="About.html">accessibility</a></p>
+          <p><a href="About.html">advertising</a></p>
           </p>
           <hr class="hid">
         </div>
         <div class="terms">
           <p>
-            <h3 id="terms">Terms</h3>
-            <p><a href="terms.html">Privacy Policy</a></p>
-            <p><a href="terms.html"> Terms and Conditions</a></p>
-            <p><a href="terms.html"> Copyright Policy</a></p>
-            <p><a href="terms.html"> Code of Conduct</a></p>
-            <!-- <p><a href=""><font color="azure"> Fees and Charges</font></a></p> -->
-        </p>
-        <hr class="hid">
+          <h3 id="terms">Terms</h3>
+          <p><a href="terms.html">Privacy Policy</a></p>
+          <p><a href="terms.html"> Terms and Conditions</a></p>
+          <p><a href="terms.html"> Copyright Policy</a></p>
+          <p><a href="terms.html"> Code of Conduct</a></p>
+          <!-- <p><a href=""><font color="azure"> Fees and Charges</font></a></p> -->
+          </p>
+          <hr class="hid">
 
         </div>
         <div class="about">
           <p>
-            <h3 id="about">contact us</h3>
-            <p><a href="About.html">aastugroup1@gmail.com</a></p>
-            <p><a href="About.html">+251953101912</a></p>
-            <p><a href="About.html"> AASTU, Tulu Dimtu, Addis Ababa, Ethiopia</a></p>
+          <h3 id="about">contact us</h3>
+          <p><a href="About.html">aastugroup1@gmail.com</a></p>
+          <p><a href="About.html">+251953101912</a></p>
+          <p><a href="About.html"> AASTU, Tulu Dimtu, Addis Ababa, Ethiopia</a></p>
           </p>
           <hr class="hid">
         </div>
-    </div>
+      </div>
 
-    <!-- the second row of footer page  -->
-    <div class="about-terms">
-      <div class="about">
-        <p>
+      <!-- the second row of footer page  -->
+      <div class="about-terms">
+        <div class="about">
+          <p>
           <h3 id="about">Job seekers</h3>
           <p><a href="About.html">Find Jobs</a></p>
           <p><a href="About.html">Register</a></p>
           <p><a href="About.html">post CV</a></p>
           <p><a href="About.html">Job Alerts</a></p>
-        </p>
-        <hr class="hid">
-      </div>
-      <div class="about">
-        <p>
+          </p>
+          <hr class="hid">
+        </div>
+        <div class="about">
+          <p>
           <h3 id="about">Employers</h3>
           <p><a href="About.html">Log in</a></p>
           <p><a href="About.html">Register</a></p>
           <p><a href="About.html">post Jobs</a></p>
           <p><a href="About.html">services</a></p>
-        </p>
-        <hr class="hid">
-      </div>
+          </p>
+          <hr class="hid">
+        </div>
         <div class="terms">
           <p>
-            <h3 id="terms">work with us</h3>
-            <p><a href="terms.html">Contact Admin</a></p>
-            <p><a href="terms.html">Become partner</a></p>
-            <p><a href="terms.html"> Explor</a></p>
-            <p><a href="terms.html"> Code of Conduct</a></p>
-            <!-- <p><a href=""><font color="azure"> Fees and Charges</font></a></p> -->
-        </p>
-        <hr class="hid">
+          <h3 id="terms">work with us</h3>
+          <p><a href="terms.html">Contact Admin</a></p>
+          <p><a href="terms.html">Become partner</a></p>
+          <p><a href="terms.html"> Explor</a></p>
+          <p><a href="terms.html"> Code of Conduct</a></p>
+          <!-- <p><a href=""><font color="azure"> Fees and Charges</font></a></p> -->
+          </p>
+          <hr class="hid">
 
         </div>
         <div class="about">
           <p>
-            <h3 id="about">useful links</h3>
-            <p><a href="About.html">ehio job</a></p>
-            <p><a href="About.html">alibaba</a></p>
-            <p><a href="About.html">freelancers</a></p>
-            <p><a href="About.html">remote work</a></p>
+          <h3 id="about">useful links</h3>
+          <p><a href="About.html">ehio job</a></p>
+          <p><a href="About.html">alibaba</a></p>
+          <p><a href="About.html">freelancers</a></p>
+          <p><a href="About.html">remote work</a></p>
           </p>
           <hr class="hid">
         </div>
-       
-        
+
+
+      </div>
+      <!-- up to here -->
+      <div class="copyright">
+        <p>
+          Placeholder ® is a registered Trademark of Placeholder Technology Pty Limited ()
+        </p>
+        <p>
+          Copyright &copy; 2022 Placeholder Technology Pty Limited ()
+        </p>
+      </div>
     </div>
-    <!-- up to here -->
-    <div class="copyright">
-      <p> 
-        Placeholder ® is a registered Trademark of Placeholder Technology Pty Limited ()
-      </p>
-      <p>
-        Copyright &copy; 2022 Placeholder Technology Pty Limited ()
-      </p>
-    </div>
-  </div>
-</footer>
-<script src="app.js"></script>
-  </body>
+  </footer>
+  <script src="app.js"></script>
+</body>
+
 </html>
