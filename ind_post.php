@@ -32,9 +32,20 @@ $DB = new Database();
 ?>
 
 <div class="job-card">
-        <div>
-         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRKdzUhdrYISPKPLpvkEHdwX40eEWdRf-PXtsf-6I3ng&s" alt="">
+<div>
+        <?php 
+        $image="";
+        if(file_exists($row['image'])){
+                $image=$row['image'];
+        }
+      
+        else {echo "ther is no image";}
+       
+        ?>  
+         <img src="<?php echo $image ?>" alt="">
         </div>
+
+    
 
         <div>
 <h4>description:</h4>
