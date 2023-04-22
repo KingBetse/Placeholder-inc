@@ -17,153 +17,201 @@ else{
 ?>
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>post a job</title>
-    <link rel="stylesheet" href="styles/about.css" />
-    <link rel="stylesheet" href="styles/style.css" />
-    <script src="https://kit.fontawesome.com/6bed12e9d5.js" crossorigin="anonymous"></script>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>post a job</title>
+  <link rel="stylesheet" href="styles/about.css" />
+  <link rel="stylesheet" href="styles/style.css" />
+  <script src="https://kit.fontawesome.com/6bed12e9d5.js" crossorigin="anonymous"></script>
 
 
-  </head>
-  <body>
-    
+</head>
 
-    <header>
-      <nav class="nav-bar" id="nav">
-        <div class="logo-and-search-bar">
-          <div class="logo">
-            <div class="logo-image">
-              <a href=""><img width="20px" height="10px" src="images/logo.jpg" alt="logo" /></a>
-            </div>
-            <!-- <div class="logo-text"><span>placeholder</span></div> -->
+<body>
+
+
+  <header>
+    <nav class="nav-bar" id="nav">
+      <div class="logo-and-search-bar">
+        <div class="logo">
+          <div class="logo-image">
+            <a href=""><img width="20px" height="10px" src="images/logo.jpg" alt="logo" /></a>
           </div>
-          <div class="sign">
-            <!-- <span class="sign-link">
+          <!-- <div class="logo-text"><span>placeholder</span></div> -->
+        </div>
+        <div class="sign">
+          <!-- <span class="sign-link">
                 <i class="fa-solid fa-right-to-bracket"></i>
                 <a href="login.html">Log out</a></span> -->
-            
-  
-            <span class="sign-link">
-              <a href="post.html"><button class="post">Post Jobs</button></a></span>
-  
-              <span class="profile-section">
-                <img id="profile-picture" width='65px' height='50px' src="img/abel.jpg" title='test'alt="profile">
-  
-                <div class="more">
-                  
-                  <span class="sign-link">
-                    <i class="fa-solid fa-right-to-bracket"></i>
-                    <a href="signup.html">log out</a></span>
-  
-                    
-                    <span class="sign-link">
-                      <i class="fa-solid fa-left-to-bracket"></i>
-                      <a href="signup.html">settings</a></span>
-                </div>
-  
-              </span>
-          </div>
-  
-        </div>
-        <div class="nav-links ">
-          <ul>
-            <li>
-              <i class="fa-solid fa-user"></i>
-              <a href="profile.html"><span>Profile</span> </a>
-            </li>
-  
-  
-            <li>
-  
-              <i class="fa-solid fa-house"></i>
-              <!-- <a href="" class="link">Home</a> -->
-              <a href="index.html"><span>Home</span> </a>
-            </li>
-            <li>
-              <i class="fa-solid fa-user-doctor"></i>
-              <a href="job.html"><span>Jobs</span></a>
-            </li>
-            <li>
-              <i class="fa-regular fa-address-card"></i>
-              <a href="about.html"><span>About</span></a>
-            </li>
-          </ul>
-          <div>
-            <i id="colapse" class="fas fa-layer-groupfas fa-layer-group">colapse</i>
-            <!-- <button id="colapse">col</button> -->
-          </div>
-      </nav>
-  
-    </header>
 
-    <!-- <div class="main"> -->
- <section class="main container">
-  <div class="why-choose-us upper-section">
-    <div class="image-container">
-      <img src="https://media.istockphoto.com/id/1345144783/photo/freelancers-working-on-new-projects.jpg?b=1&s=170667a&w=0&k=20&c=NAX0oItlF3lpBX8RmwNbS74yqrg-UvRqSl2nmcK8icM=" alt="">
-    </div>
-    <div class="text-container">
-      <h2 class="upper-header">About us</h2>
-        <p>We proudly boast of a team of experienced professionals who have served job seekers and clients in the 
-          African job market for over 25 years. We have a team of qualified individuals committed to providing a 
-          transparent service to all our customers. With their years of expertise in the field, our team is confident in 
+
+          <span class="sign-link">
+            <a href="post.html"><button class="post">Post Jobs</button></a></span>
+
+          <span class="profile-section">
+            <img id="profile-picture" width='65px' height='50px' src='         
+            <?php 
+            if ($_SESSION["photo"]!=""){
+              echo$_SESSION["photo"];
+            }
+            else{
+              echo "img/abel.jpg";
+              
+            }?>
+            ' title='test' alt="profile">
+
+            <div class="more">
+              <span class="sign-link">
+                <img id="profile-picture" width='65px' height='50px' src='
+                                    
+                  <?php 
+                  if ($_SESSION["photo"]!=""){
+                    echo$_SESSION["photo"];
+                  }
+                  else{
+                    echo "img/abel.jpg";
+                    
+                  }?>
+                  
+                  ' title='test' alt="profile">
+              </span>
+              <span class="sign-link">
+                <?php
+                if($_SESSION['username']!=''  ){
+                echo $_SESSION['username'];
+                }
+                else{
+                  echo "test";
+                }
+
+                 
+                 
+                 
+                 
+                 ?>
+
+
+              </span>
+
+
+
+              <span class="sign-link">
+                <i class="fa-solid fa-right-to-bracket"></i>
+                <a href="signup.html">log out</a></span>
+
+
+              <span class="sign-link">
+                <i class="fa-solid fa-left-to-bracket"></i>
+                <a href="signup.html">settings</a></span>
+            </div>
+
+          </span>
+        </div>
+
+      </div>
+      <div class="nav-links ">
+        <ul>
+          <li>
+            <i class="fa-solid fa-user"></i>
+            <a href="profile.html"><span>Profile</span> </a>
+          </li>
+
+
+          <li>
+
+            <i class="fa-solid fa-house"></i>
+            <!-- <a href="" class="link">Home</a> -->
+            <a href="index.html"><span>Home</span> </a>
+          </li>
+          <li>
+            <i class="fa-solid fa-user-doctor"></i>
+            <a href="job.html"><span>Jobs</span></a>
+          </li>
+          <li>
+            <i class="fa-regular fa-address-card"></i>
+            <a href="about.html"><span>About</span></a>
+          </li>
+        </ul>
+        <div>
+          <i id="colapse" class="fas fa-layer-groupfas fa-layer-group">colapse</i>
+          <!-- <button id="colapse">col</button> -->
+        </div>
+    </nav>
+
+  </header>
+
+  <!-- <div class="main"> -->
+  <section class="main container">
+    <div class="why-choose-us upper-section">
+      <div class="image-container">
+        <img
+          src="https://media.istockphoto.com/id/1345144783/photo/freelancers-working-on-new-projects.jpg?b=1&s=170667a&w=0&k=20&c=NAX0oItlF3lpBX8RmwNbS74yqrg-UvRqSl2nmcK8icM="
+          alt="">
+      </div>
+      <div class="text-container">
+        <h2 class="upper-header">About us</h2>
+        <p>We proudly boast of a team of experienced professionals who have served job seekers and clients in the
+          African job market for over 25 years. We have a team of qualified individuals committed to providing a
+          transparent service to all our customers. With their years of expertise in the field, our team is confident in
           providing the best possible service to everyone.</p>
-          
+
+      </div>
     </div>
-  </div>
-  <div class="why-choose-us">
-    <div class="text-container">
-      <h2 class="upper-header">Why choose us?</h2>
-        <p>We proudly boast of a team of experienced professionals who have served job seekers and clients in the 
-          African job market for over 25 years. We have a team of qualified individuals committed to providing a 
-          transparent service to all our customers. With their years of expertise in the field, our team is confident in 
+    <div class="why-choose-us">
+      <div class="text-container">
+        <h2 class="upper-header">Why choose us?</h2>
+        <p>We proudly boast of a team of experienced professionals who have served job seekers and clients in the
+          African job market for over 25 years. We have a team of qualified individuals committed to providing a
+          transparent service to all our customers. With their years of expertise in the field, our team is confident in
           providing the best possible service to everyone.</p>
-          <p>We provide a streamlined solution to our clients with customized recruitment services, payroll management, 
-            and HR consulting. By partnering with thousands of clients, we can deliver quality services and support to 
-            those who need it most.</p>
-            <p>With a team of experienced professionals with years of experience in this field, Africa Jobs Network is an
-              ideal choice for quality recruitment and HR services.</p>
+        <p>We provide a streamlined solution to our clients with customized recruitment services, payroll management,
+          and HR consulting. By partnering with thousands of clients, we can deliver quality services and support to
+          those who need it most.</p>
+        <p>With a team of experienced professionals with years of experience in this field, Africa Jobs Network is an
+          ideal choice for quality recruitment and HR services.</p>
+      </div>
+      <div class="image-conainer">
+        <img
+          src="https://media.istockphoto.com/id/1345144783/photo/freelancers-working-on-new-projects.jpg?b=1&s=170667a&w=0&k=20&c=NAX0oItlF3lpBX8RmwNbS74yqrg-UvRqSl2nmcK8icM="
+          alt="">
+      </div>
     </div>
-    <div class="image-conainer">
-      <img src="https://media.istockphoto.com/id/1345144783/photo/freelancers-working-on-new-projects.jpg?b=1&s=170667a&w=0&k=20&c=NAX0oItlF3lpBX8RmwNbS74yqrg-UvRqSl2nmcK8icM=" alt="">
-    </div>
-  </div>     
-      <h2>Our Experts</h2>
-      <div class="our-experts">
-        <div class="person">
-          <img src="img/asero.jpg" alt="" class="team-photo">
-          <h4>Aser Hailu</h4>
-          <p>Founder/CEO</p>
-        </div>
-        <div class="person">
-          <img src="img/bethi.jpg" alt="" class="team-photo">
-          <h4>Bethelhem Habtamu</h4>
-          <p>Chief operating officer</p>
-        </div>
-        <div class="person">
-            <img src="img/betty.jpg" alt="" class="team-photo">
-            <h4>Bethelhem Gebeyehu</h4>
-          <p>Country manager</p>
-        </div>
-        <div class="person">
-          <img src="img/abel.jpg" alt="" class="team-photo">
-          <h4>Abel Bekele</h4>
-          <p>Project director</p>
-        </div>
-       
-        <div class="person">
-          <img src="img/betselot.jpg" alt="" class="team-photo">
-          <h4>Betselot</h4>
-          <p>Front end designer</p>
-        </div>
+    <h2>Our Experts</h2>
+    <div class="our-experts">
+      <div class="person">
+        <img src="img/asero.jpg" alt="" class="team-photo">
+        <h4>Aser Hailu</h4>
+        <p>Founder/CEO</p>
+      </div>
+      <div class="person">
+        <img src="img/bethi.jpg" alt="" class="team-photo">
+        <h4>Bethelhem Habtamu</h4>
+        <p>Chief operating officer</p>
+      </div>
+      <div class="person">
+        <img src="img/betty.jpg" alt="" class="team-photo">
+        <h4>Bethelhem Gebeyehu</h4>
+        <p>Country manager</p>
+      </div>
+      <div class="person">
+        <img src="img/abel.jpg" alt="" class="team-photo">
+        <h4>Abel Bekele</h4>
+        <p>Project director</p>
       </div>
 
-</section>
-    
+      <div class="person">
+        <img src="img/betselot.jpg" alt="" class="team-photo">
+        <h4>Betselot</h4>
+        <p>Front end designer</p>
+      </div>
+    </div>
+
+  </section>
+
 
   <!-- </div> -->
   <footer>
@@ -171,109 +219,109 @@ else{
       <div class="contacts">
         <a href="https://www.facebook.com"><img height="36" width="36" src="images/th (3).png" alt="logo"></a>
         <a href="https://www.youtube.com"><img height="36" width="36" src="images/th (2).png" alt="logo"></a>
-        <a href="https://www.twitter.com"><img height="36" width="36" src="images/th (1).png" alt="logo"></a> 
+        <a href="https://www.twitter.com"><img height="36" width="36" src="images/th (1).png" alt="logo"></a>
         <a href="https://www.instagram.com"><img height="36" width="36" src="images/th.png" alt="logo"></a>
-        
+
       </div>
       <hr class="hid">
-    
+
       <div class="about-terms">
         <div class="about">
           <p>
-            <h3 id="about">FAQ</h3>
-            <p><a href="About.html">How do i register?</a></p>
-            <p><a href="About.html">How to apply for a job?</a></p>
-            <p><a href="About.html">How do I reset my password?</a></p> 
-            <p><a href="About.html">how do i edit my cv?</a></p>
-            <p><a href="About.html">how do i get notification?</a></p>
-            <p><a href="About.html">what makes this platform different?</a></p>
+          <h3 id="about">FAQ</h3>
+          <p><a href="About.html">How do i register?</a></p>
+          <p><a href="About.html">How to apply for a job?</a></p>
+          <p><a href="About.html">How do I reset my password?</a></p>
+          <p><a href="About.html">how do i edit my cv?</a></p>
+          <p><a href="About.html">how do i get notification?</a></p>
+          <p><a href="About.html">what makes this platform different?</a></p>
           </p>
           <hr class="hid">
         </div>
-          <div class="about">
-            <p>
-              <h3 id="about">About</h3>
-              <p><a href="About.html">About us</a></p>
-              <p><a href="About.html">how it works</a></p>
-              <p><a href="About.html">Careers</a></p>
-              <p><a href="About.html">accessibility</a></p>
-              <p><a href="About.html">advertising</a></p>
-            </p>
-            <hr class="hid">
-          </div>
-          <div class="terms">
-            <p>
-              <h3 id="terms">Terms</h3>
-              <p><a href="terms.html">Privacy Policy</a></p>
-              <p><a href="terms.html"> Terms and Conditions</a></p>
-              <p><a href="terms.html"> Copyright Policy</a></p>
-              <p><a href="terms.html"> Code of Conduct</a></p>
-              <!-- <p><a href=""><font color="azure"> Fees and Charges</font></a></p> -->
+        <div class="about">
+          <p>
+          <h3 id="about">About</h3>
+          <p><a href="About.html">About us</a></p>
+          <p><a href="About.html">how it works</a></p>
+          <p><a href="About.html">Careers</a></p>
+          <p><a href="About.html">accessibility</a></p>
+          <p><a href="About.html">advertising</a></p>
+          </p>
+          <hr class="hid">
+        </div>
+        <div class="terms">
+          <p>
+          <h3 id="terms">Terms</h3>
+          <p><a href="terms.html">Privacy Policy</a></p>
+          <p><a href="terms.html"> Terms and Conditions</a></p>
+          <p><a href="terms.html"> Copyright Policy</a></p>
+          <p><a href="terms.html"> Code of Conduct</a></p>
+          <!-- <p><a href=""><font color="azure"> Fees and Charges</font></a></p> -->
           </p>
           <hr class="hid">
 
-          </div>
-          <div class="about">
-            <p>
-              <h3 id="about">contact us</h3>
-              <p><a href="About.html">aastugroup1@gmail.com</a></p>
-              <p><a href="About.html">+251953101912</a></p>
-              <p><a href="About.html"> AASTU, Tulu Dimtu, Addis Ababa, Ethiopia</a></p>
-            </p>
-            <hr class="hid">
-          </div>
+        </div>
+        <div class="about">
+          <p>
+          <h3 id="about">contact us</h3>
+          <p><a href="About.html">aastugroup1@gmail.com</a></p>
+          <p><a href="About.html">+251953101912</a></p>
+          <p><a href="About.html"> AASTU, Tulu Dimtu, Addis Ababa, Ethiopia</a></p>
+          </p>
+          <hr class="hid">
+        </div>
       </div>
 
       <!-- the second row of footer page  -->
       <div class="about-terms">
         <div class="about">
           <p>
-            <h3 id="about">Job seekers</h3>
-            <p><a href="About.html">Find Jobs</a></p>
-            <p><a href="About.html">Register</a></p>
-            <p><a href="About.html">post CV</a></p>
-            <p><a href="About.html">Job Alerts</a></p>
+          <h3 id="about">Job seekers</h3>
+          <p><a href="About.html">Find Jobs</a></p>
+          <p><a href="About.html">Register</a></p>
+          <p><a href="About.html">post CV</a></p>
+          <p><a href="About.html">Job Alerts</a></p>
           </p>
           <hr class="hid">
         </div>
         <div class="about">
           <p>
-            <h3 id="about">Employers</h3>
-            <p><a href="About.html">Log in</a></p>
-            <p><a href="About.html">Register</a></p>
-            <p><a href="About.html">post Jobs</a></p>
-            <p><a href="About.html">services</a></p>
+          <h3 id="about">Employers</h3>
+          <p><a href="About.html">Log in</a></p>
+          <p><a href="About.html">Register</a></p>
+          <p><a href="About.html">post Jobs</a></p>
+          <p><a href="About.html">services</a></p>
           </p>
           <hr class="hid">
         </div>
-          <div class="terms">
-            <p>
-              <h3 id="terms">work with us</h3>
-              <p><a href="terms.html">Contact Admin</a></p>
-              <p><a href="terms.html">Become partner</a></p>
-              <p><a href="terms.html"> Explor</a></p>
-              <p><a href="terms.html"> Code of Conduct</a></p>
-              <!-- <p><a href=""><font color="azure"> Fees and Charges</font></a></p> -->
+        <div class="terms">
+          <p>
+          <h3 id="terms">work with us</h3>
+          <p><a href="terms.html">Contact Admin</a></p>
+          <p><a href="terms.html">Become partner</a></p>
+          <p><a href="terms.html"> Explor</a></p>
+          <p><a href="terms.html"> Code of Conduct</a></p>
+          <!-- <p><a href=""><font color="azure"> Fees and Charges</font></a></p> -->
           </p>
           <hr class="hid">
 
-          </div>
-          <div class="about">
-            <p>
-              <h3 id="about">useful links</h3>
-              <p><a href="About.html">ehio job</a></p>
-              <p><a href="About.html">alibaba</a></p>
-              <p><a href="About.html">freelancers</a></p>
-              <p><a href="About.html">remote work</a></p>
-            </p>
-            <hr class="hid">
-          </div>
-         
-          
+        </div>
+        <div class="about">
+          <p>
+          <h3 id="about">useful links</h3>
+          <p><a href="About.html">ehio job</a></p>
+          <p><a href="About.html">alibaba</a></p>
+          <p><a href="About.html">freelancers</a></p>
+          <p><a href="About.html">remote work</a></p>
+          </p>
+          <hr class="hid">
+        </div>
+
+
       </div>
       <!-- up to here -->
       <div class="copyright">
-        <p> 
+        <p>
           Placeholder ® is a registered Trademark of Placeholder Technology Pty Limited ()
         </p>
         <p>
@@ -283,5 +331,6 @@ else{
     </div>
   </footer>
   <script src="app.js"></script>
-  </body>
+</body>
+
 </html>

@@ -15,16 +15,17 @@
 
   .profile-section .more {
     position: absolute;
-    right: 0;
-    background-color: rgb(7, 30, 75);
-    min-height: 150px;
-    min-width: 200px;
-    margin: auto;
+    right: 10px;
+    border-radius: 5%;
+    background-color: #fff;
+    /* min-height: 150px; */
+    /* min-width: 200px; */
+    padding: 1em;
     z-index: 20px;
     flex-direction: column;
     color: #fff;
     padding: 1em;
-    align-items: flex-end;
+    align-items: center;
     justify-content: center;
     display: none;
   }
@@ -33,6 +34,8 @@
   }
   .profile-section.vis .more {
     display: flex;
+    background-color: rgb(244, 246, 249);
+
   }
 
   .nav-bar .nav-links.close #colapse {
@@ -46,7 +49,6 @@
     position: absolute;
     margin-top: 1%;
     right: 3%;
-
     /* display: none; */
   }
 
@@ -59,6 +61,7 @@
 
   .nav-bar .nav-links.close ul {
     display: block;
+    
   }
 
   * {
@@ -126,9 +129,9 @@
   }
 
   .nav-bar .logo-and-search-bar .sign {
-    align-self: right;
+    /* align-self: right; */
     /* margin-top: 10px; */
-    margin-left: 50px;
+    /* margin-left: 50px; */
   }
 
   .nav-bar .logo-and-search-bar .sign .sign-link {
@@ -190,6 +193,8 @@
 
   .nav-bar .nav-links ul li {
     margin-left: 40px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 
     /* font-family: sans-serif; */
   }

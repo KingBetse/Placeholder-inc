@@ -15,13 +15,13 @@ public function getProf($data){
     $education=addsLashes($data['education']);
     $country=addsLashes($data['country']);
     $photo=addsLashes($data['photo']);
-    $skills=addsLashes($data['skils']);
+    $skills=addsLashes($data['skills']);
    
     // if($result=""){
     //   echo "unkown account";
     // }
     // else{
-      $query="update users set first_name = '$firstName', last_name = '$lastName',phone_number = '$phoneNum', birth_date = '$birthDate', gender = '$gender', education = '$education', country = '$country', skills = '$skills' where user_id = '$usernum'";
+      $query="update users set first_name = '$firstName', last_name = '$lastName',phone_number = '$phoneNum', birth_date = '$birthDate', gender = '$gender', education = '$education', country = '$country', skills = '$skills', photo = '$photo' where user_id = '$usernum'";
     // // $query="insert into users (first_name,last_name,phone_number,birth_date,gender,education,country,skills) values ('$firstName',' $lastName','$phoneNum','$birthDate','$gender','$education','$country','$skills')";
     $DB->insert($query);
     // }

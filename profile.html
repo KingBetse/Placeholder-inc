@@ -78,29 +78,71 @@ else{
         </div>
         <div class="sign">
           <!-- <span class="sign-link">
-              <i class="fa-solid fa-right-to-bracket"></i>
-              <a href="login.html">Log out</a></span> -->
-          
+                <i class="fa-solid fa-right-to-bracket"></i>
+                <a href="login.html">Log out</a></span> -->
+
 
           <span class="sign-link">
             <a href="post.html"><button class="post">Post Jobs</button></a></span>
 
-            <span class="profile-section">
-              <img id="profile-picture" width='65px' height='50px' src="img/abel.jpg" title='test'alt="profile">
+          <span class="profile-section">
+            <img id="profile-picture" width='65px' height='50px' src='         
+            <?php 
+            if ($_SESSION["photo"]!=""){
+              echo$_SESSION["photo"];
+            }
+            else{
+              echo "img/abel.jpg";
+              
+            }?>
+            ' title='test' alt="profile">
 
-              <div class="more">
-                
-                <span class="sign-link">
-                  <i class="fa-solid fa-right-to-bracket"></i>
-                  <a href="signup.html">log out</a></span>
-
+            <div class="more">
+              <span class="sign-link">
+                <img id="profile-picture" width='65px' height='50px' src='
+                                    
+                  <?php 
+                  if ($_SESSION["photo"]!=""){
+                    echo$_SESSION["photo"];
+                  }
+                  else{
+                    echo "img/abel.jpg";
+                    
+                  }?>
                   
-                  <span class="sign-link">
-                    <i class="fa-solid fa-left-to-bracket"></i>
-                    <a href="signup.html">settings</a></span>
-              </div>
+                  ' title='test' alt="profile">
+              </span>
+              <span class="sign-link">
+                <?php
+                if($_SESSION['username']!=''  ){
+                echo $_SESSION['username'];
+                }
+                else{
+                  echo "test";
+                }
 
-            </span>
+                 
+                 
+                 
+                 
+                 ?>
+
+
+              </span>
+
+
+
+              <span class="sign-link">
+                <i class="fa-solid fa-right-to-bracket"></i>
+                <a href="signup.html">log out</a></span>
+
+
+              <span class="sign-link">
+                <i class="fa-solid fa-left-to-bracket"></i>
+                <a href="signup.html">settings</a></span>
+            </div>
+
+          </span>
         </div>
 
       </div>
@@ -134,6 +176,8 @@ else{
     </nav>
 
   </header>
+
+
 
   <section class="container">
     <h3>Profile</h3>
