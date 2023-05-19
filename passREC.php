@@ -15,12 +15,10 @@ $query2="select * from users where user_id='$id' limit 1";
 $result=$DB->read($query2);
 $row=$result[0];
 $pass=$row['password'];
-echo($pass);
-echo("<br>");
+
 $pass=substr($pass, -1);
-echo($pass);
-echo("<br>");
-echo($password);
+
+
 
        if($pass==$password){ 
             if($newPassword==$vPassword){
@@ -51,7 +49,7 @@ echo($password);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="login.css" rel="stylesheet" />
+    <link href="Style\login.css" rel="stylesheet" />
     <title>Password Recovery</title>
 </head>
 <body>

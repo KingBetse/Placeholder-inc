@@ -3,32 +3,10 @@
 include_once("classes\post.php");
 
 $post=new Post();
-//$id=$_SESSION['placeholder_userid'];
 
-//$post->get_post($id);
 $post->get_some();
 
-$DB = new Database();
-
-    // foreach($id as $row)
-
-    //     $query="select * from post where id='$id' limit 1";
-       
-    //     $result=$DB->read($query);
-    //     if($result){ 
-    //       $row=$result[0];
-    //     $job_title =$row['job_title'];
-    //     $Job_type =$row['job_type'];
-    //     $work_location =$row['work_location'];
-    //     $vacancies =$row['vacancies'];
-    //     $Needed =$row['needed'];
-    //     $experiance =$row['work_experiance'];
-    //     $salary =$row['salary'];
-    //     $closed =$row['closed'];
-
-    // }
-
-    
+$DB = new Database();   
 ?>
 
 <div class="job-card">
@@ -64,7 +42,7 @@ $DB = new Database();
         <div>
          
          <a class="button" href="profile.html"><button>today</button></a>
-         <a href="profile.html"><button>apply</button></a>
+         <a href="requirment.php"><button>apply</button></a>
 
         </div>
         <br>

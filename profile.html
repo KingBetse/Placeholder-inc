@@ -20,17 +20,32 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
   if($result){
     $user= new User();
     $user_data=$user->get_data($id);
+    
+   
 
     $profile= new Profile();
     $error =$profile->evaluate($_POST);
     if($error==''){
       $profile->getProf($_POST);
+      if(isset($_FILES['photo']['name'])&&  $_FILES['photo']['name']!=''){
+        $filename='uploads/' .$_FILES['photo']['name'];
+        move_uploaded_file($_FILES['photo']['tmp_name'],$filename);
+        if(file_exists($filename)){
+    
+          $query ="update users set image= '$filename' where user_id='$id'";
+          $DB=new Database();
+          $DB->insert($query);
+    
+        }
+        } 
+        else{
+    $error='enter a valid photo';
+    echo $error;
+        }
     }
     else{
       return $error;
     }
-  
-  
     header("Location:index.html");
     die;
   }else{
@@ -57,8 +72,8 @@ else{
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>profile</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="profile.css" />
+    <link rel="stylesheet" href="Style/style.css" />
+    <link rel="stylesheet" href="Style/profile.css" />
     <script src="https://kit.fontawesome.com/6bed12e9d5.js" crossorigin="anonymous"></script>
 
   </head>
@@ -177,37 +192,8 @@ else{
         <input type="file" name="photo" placeholder="" />
       </div>
 
-      <div class="skills">
-        <h3 for="">Skills</h3>
-        <div class="column">
-          <div class="items">
-            <lable> Web Development </lable>
-            <input type="checkbox" name="skills" value="webdevelopment" value="Web Development"/>
-          </div>
-          <div class="items">
-            <label> Accounting </label>
-            <input
-              type="checkbox"
-              name="skills"
-              checkedvalue="accounting"
-              value="Accounting "
-            />
-          </div>
-          <div class="items">
-            <label>Accounting  </label>
-            <input type="checkbox" name="skills" value="sales" />
-          </div>
-          <div class="items">
-            <label>Law </label>
-            <input type="checkbox" name="skills" value="law" />
-          </div>
-          <div class="items">
-            <label>Other </label>
-            <input type="checkbox" name="skills" value="other" />
-          </div>
-        </div>
-      </div>
-    </div>
+      
+       
 
     <button>Submit</button>
   </form>

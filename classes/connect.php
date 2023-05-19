@@ -1,8 +1,4 @@
 <?php
-
-
-// $first_name = "betselot";
-// $last_name="bezuayehu";
 class Database{
   private  $host="localhost";
   private  $username="root";
