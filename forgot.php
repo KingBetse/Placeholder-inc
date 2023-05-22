@@ -27,18 +27,22 @@ $result=$DB->read($query);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="login.css" rel="stylesheet" />
+    
+    <link href="Style\forgot.css" rel="stylesheet" />
     <title>Password Recovery</title>
 </head>
 <body>
+  <div class="con">
 <div class ="mid">
-    <form action="" method="post" name="register">
+    <form action="" method="post" class="form" name="register">
     <h2>Password recovery</h2>
   <br /> <br />
+  <div class="input-box">
  <lable>Enter the email</lable>
   <br />   <br /> 
   <input type="email" name="email1" placeholder="&nbsp;&nbsp;Email" id="text" required/>
   <br /><br />
+  </div>
 
   
   <br /><br />
@@ -50,5 +54,6 @@ $result=$DB->read($query);
   <br />
 </form>
 </div>
+  </div>
 </body>
 </html>

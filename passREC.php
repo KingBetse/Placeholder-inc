@@ -49,7 +49,8 @@ $pass=substr($pass, -1);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="Style\login.css" rel="stylesheet" />
+    <link href="Style\forgot.css" rel="stylesheet" />
+
     <title>Password Recovery</title>
 </head>
 <body>
@@ -59,39 +60,42 @@ $pass=substr($pass, -1);
  
   <h2>Password recovery</h2>
   <br /> 
-
-  <lable>Enter the last of your old password</lable>
+  <div class="input-box">
+  <lable>Enter the last character of your old password</lable>
   <br /> <br />
   <input
     type="password"
     name="Password"
-    placeholder="&nbsp;&nbsp;Password"
+    placeholder="&nbsp;&nbsp;Old Password"
     minlength="1"
     maxlength="1"
     id="text"
     required
   />
+  </div>
   <br /> <br />
 
-  <br /> 
+  <div class="input-box">
   <label>Enter New Password</label>
   <br /> <br />
   <input
     type="password"
     name="newPassword"
-    placeholder="&nbsp;&nbsp;Password"
+    placeholder="&nbsp;&nbsp;New Password"
     minlength="8"
     maxlength="15"
     id="text"
     required
   />
+  </div>
+  <div class="input-box">
   <br /><br />
-  <label>verify New Password</label>
+  <label>Verify New Password</label>
   <br /> <br />
   <input
     type="password"
     name="vPassword"
-    placeholder="&nbsp;&nbsp;Password"
+    placeholder="&nbsp;&nbsp; Verify Password"
     minlength="8"
     maxlength="15"
     id="text"

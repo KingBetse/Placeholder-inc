@@ -59,7 +59,7 @@ $ownPost_id=$row['post_id'];
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>reqirment</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="Style/style.css" />
 
 </head>
 <body>
@@ -129,7 +129,7 @@ $ownPost_id=$row['post_id'];
   <br /><br />
 
   <!-- <a href="index.html"> -->
-  <button  >
+  <button>
     submit
   </button>
   <br />
