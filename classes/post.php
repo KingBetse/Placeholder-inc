@@ -1,7 +1,8 @@
 <?php
 class Post{
     public function createUser($data){
-        
+        $DB = new Database();
+       
         $job_title= addsLashes($data['job_title']);
         $job_type=addsLashes($data['job_type']);
         $Work_loc=addsLashes($data['work_location']);
@@ -24,9 +25,10 @@ class Post{
     }
     public function get_post($id){
         $DB = new Database();
+       
        $query="select * from post where user_id='$id' order by id desc limit 10";
        $result=$DB->read($query);
-       if($result){ 
+       if($result ){ 
                 return $result;
     
             }
@@ -35,6 +37,17 @@ class Post{
             }
 
         
+    }
+    public function name($id){
+        $DB = new Database();
+        $query2="select * from users where user_id='$id' limit 1";;
+        $nam= $DB->read($query2);
+        if($nam){
+            return $nam;
+        }
+        else{
+            return false;
+        }
     }
     public function get_all(){
         $DB = new Database();

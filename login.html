@@ -9,15 +9,25 @@ $email='';
 if($_SERVER['REQUEST_METHOD']=='POST'){
   $signin= new Signin();
   $result=$signin->login($_POST);
+  $email=$_POST['email1'];
+$password=$_POST['password1'];
+
+  if($_POST['Remember']="on"){
+
+setcookie("userEmail",$email,time()+60*60*24*2);
+setcookie("userPassword",$password,time()+60*60*24*2);
+echo"Succes";
+var_dump($_COOKIE);
+  }
+
 if($result!=''){
   echo $result;
 } 
 else{
-  header("Location:index.html");
+ header("Location:index.html");
 die;
 }
-$email=$_POST['email1'];
-$password=$_POST['password1'];
+
 }
 ?>
 <!DOCTYPE html>
@@ -26,7 +36,7 @@ $password=$_POST['password1'];
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="logIn.css" rel="stylesheet" />
+    <link href="styles\login.css" rel="stylesheet" />
     <title>Log in</title>
   </head>
   <body>
@@ -43,7 +53,7 @@ $password=$_POST['password1'];
   <br /> <br />
   <hr />
   <br /> 
-  <input type="email" name="email1" placeholder="&nbsp;&nbsp;Email" id="text" required/>
+  <input type="email" name="email1" placeholder="&nbsp;&nbsp;Email" value="<?php if(!empty($_COOKIE['userEmail'])){echo$_COOKIE['userEmail'];} ?>" id="text" required/>
   <br /><br />
 
   <input
@@ -52,14 +62,20 @@ $password=$_POST['password1'];
     placeholder="&nbsp;&nbsp;Password"
     minlength="8"
     maxlength="50"
+    value="<?php if(!empty($_COOKIE['userPassword'])){echo $_COOKIE['userPassword'];} ?>"
     id="text"
     required
   />
   <br /><br />
-  <input type="checkbox" name="Remember" value="Remember" />
+  <?php//if(!empty($_COOKIE['userPassword'])&&!empty($_COOKIE['userPassword'])){ ?>
+  <input type="checkbox" name="Remember" checked value="Remember" />
+  <?php // }  else {?>
+    <!-- <input type="checkbox" name="Remember" checked value="Remember" /> -->
+    <?php // }?>
+  
   <label>Remember me</label>
   <br /><br />
-  <a href="" align="right">Forgot Password?</a>
+  <a href="forgot.php" align="right">Forgot Password?</a>
   <br /><br />
   <!-- <a href="index.html"> -->
   <button type="submit" name="submit" id="Btn">

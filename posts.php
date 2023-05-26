@@ -3,30 +3,19 @@
 include_once("classes\post.php");
 
 $post=new Post();
-//$id=$_SESSION['placeholder_userid'];
+$id=$_SESSION['placeholder_userid'];
 
 //$post->get_post($id);
 $post->get_all();
+$name=$post->name($row['user_id']);
+
+foreach($name as $wor){
+      $Fname=$wor['first_name'];  
+      $image=$wor['image'];
+}
 
 $DB = new Database();
 
-    // foreach($id as $row)
-
-    //     $query="select * from post where id='$id' limit 1";
-       
-    //     $result=$DB->read($query);
-    //     if($result){ 
-    //       $row=$result[0];
-    //     $job_title =$row['job_title'];
-    //     $Job_type =$row['job_type'];
-    //     $work_location =$row['work_location'];
-    //     $vacancies =$row['vacancies'];
-    //     $Needed =$row['needed'];
-    //     $experiance =$row['work_experiance'];
-    //     $salary =$row['salary'];
-    //     $closed =$row['closed'];
-
-    // }
 
     
 ?>
@@ -34,12 +23,10 @@ $DB = new Database();
 <div class="job-card">
         <div>
         <?php 
-        $image="";
-        if(file_exists($row['image'])){
-                $image=$row['image'];
+        
+        if(!file_exists($image)){
+                echo "there is no image";
         }
-      
-        else {echo "ther is no image";}
        
         ?>  
          <img src="<?php echo $image ?>" alt="">
@@ -47,6 +34,7 @@ $DB = new Database();
 
         <div>
 <h4>description:</h4>
+<h5><?php echo $Fname ?></h5>
 <ul>
   <li>job title:<?php echo $row['job_title'];?></li>
   <li>Job type: <?php echo $row['job_type'];?></li>
@@ -62,7 +50,7 @@ $DB = new Database();
         <div>
          
          <a class="button" href="profile.html"><button>today</button></a>
-         <a href="profile.html"><button>apply</button></a>
+         <a href="requirment.php?id=<?php echo $row['post_id']?>"> <button>apply</button></a>
 
         </div>
         <br>

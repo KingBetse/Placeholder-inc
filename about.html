@@ -22,34 +22,93 @@ else{
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>post a job</title>
-    <link rel="stylesheet" href="about.css" />
-    <link rel="stylesheet" href="style.css" />
-    <script src="https://kit.fontawesome.com/6bed12e9d5.js" crossorigin="anonymous"></script>
+    <title>About</title>
+    <link rel="stylesheet" href="styles/about.css" />
+  <link rel="stylesheet" href="styles/style.css" />
+  <script src="https://kit.fontawesome.com/6bed12e9d5.js" crossorigin="anonymous"></script>
 
 
   </head>
   <body>
     
-    <header >
+    <header>
       <nav class="nav-bar" id="nav">
         <div class="logo-and-search-bar">
           <div class="logo">
             <div class="logo-image">
-              <a href=""><img width="20px" height="10px"
-                src="images/logo.jpg" alt="logo" /></a>
+              <a href=""><img width="20px" height="10px" src="images/logo.jpg" alt="logo" /></a>
             </div>
             <!-- <div class="logo-text"><span>placeholder</span></div> -->
           </div>
           <div class="sign">
-        
-            <span class="sign-link">
-              <i class="fa-solid fa-right-to-bracket"></i>
-              <a href="logout.php">Sign Out</a></span>
+            <!-- <span class="sign-link">
+                  <i class="fa-solid fa-right-to-bracket"></i>
+                  <a href="login.html">Log out</a></span> -->
+  
+  
             <span class="sign-link">
               <a href="post.html"><button class="post">Post Jobs</button></a></span>
+  
+            <span class="profile-section">
+              <img id="profile-picture" width='65px' height='50px' src='         
+              <?php 
+              if ($_SESSION["photo"]!=""){
+                echo$_SESSION["photo"];
+              }
+              else{
+                echo "img/abel.jpg";
+                
+              }?>
+              ' title='test' alt="profile">
+  
+              <div class="more">
+                <span class="sign-link">
+                  <img id="profile-picture" width='65px' height='50px' src='
+                                      
+                    <?php 
+                    if ($_SESSION["photo"]!=""){
+                      echo$_SESSION["photo"];
+                    }
+                    else{
+                      echo "img/abel.jpg";
+                      
+                    }?>
+                    
+                    ' title='test' alt="profile">
+                </span>
+                <span class="sign-link">
+                  <?php
+                  if($_SESSION['username']!=''  ){
+                  echo $_SESSION['username'];
+                  }
+                  else{
+                    echo "test";
+                  }
+  
+                   
+                   
+                   
+                   
+                   ?>
+  
+  
+                </span>
+  
+  
+  
+                <span class="sign-link">
+                  <i class="fa-solid fa-right-to-bracket"></i>
+                  <a href="signup.html">log out</a></span>
+  
+  
+                <span class="sign-link">
+                  <i class="fa-solid fa-left-to-bracket"></i>
+                  <a href="signup.html">settings</a></span>
+              </div>
+  
+            </span>
           </div>
-          
+  
         </div>
         <div class="nav-links ">
           <ul>
@@ -57,12 +116,12 @@ else{
               <i class="fa-solid fa-user"></i>
               <a href="profile.html"><span>Profile</span> </a>
             </li>
-            
-            
+  
+  
             <li>
-              
-            <i class="fa-solid fa-house"></i>
-            <!-- <a href="" class="link">Home</a> -->
+  
+              <i class="fa-solid fa-house"></i>
+              <!-- <a href="" class="link">Home</a> -->
               <a href="index.html"><span>Home</span> </a>
             </li>
             <li>
@@ -75,13 +134,13 @@ else{
             </li>
           </ul>
           <div>
-            <i id="colapse" class="fas fa-layer-groupfas fa-layer-group" >colapse</i>
-          <!-- <button id="colapse">col</button> -->
-        </div>
+            <i id="colapse" class="fas fa-layer-groupfas fa-layer-group">colapse</i>
+            <!-- <button id="colapse">col</button> -->
+          </div>
       </nav>
-      
+  
     </header>
-
+  
     <!-- <div class="main"> -->
  <section class="main container">
   <div class="why-choose-us upper-section">
