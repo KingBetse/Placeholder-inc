@@ -35,8 +35,8 @@ $DB = new Database();
   <li>applicangs Nedded:<?php echo $row['needed'];?></li>
   <li>work experiance: <?php echo $row['work_experiance'];?> </li>
   <li>initial salary: <?php echo $row['salary'] ." birr";?></li>
-  <li>verified campany</li>
-  <p> <<?php echo $row['closed'];?></p>
+  <li>verified company:<?php echo $row['closed']; ?></li> 
+
 </ul>
 </div>
         <div>
