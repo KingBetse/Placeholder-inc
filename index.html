@@ -46,9 +46,11 @@ else{
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Home</title>
-  <link rel="stylesheet" href="styles/home.css" />
 
+  <link rel="stylesheet" href="styles/home.css" />
   <link rel="stylesheet" href="styles/style.css" />
+  
+
 
   <!-- <link rel="stylesheet" href="heme.css"/> -->
 
@@ -57,14 +59,7 @@ else{
 
 <body>
 
-
-
-  <!-- the header section  -->
-
-  <div id="back-to-top">
-    <a href="#top"><img src="images/top.jpg" alt="top" height="10px" width="10px"> </a>
-  </div>
-
+    
   <header>
     <nav class="nav-bar" id="nav">
       <div class="logo-and-search-bar">
@@ -76,81 +71,93 @@ else{
         </div>
         <div class="sign">
           <!-- <span class="sign-link">
-                  <i class="fa-solid fa-right-to-bracket"></i>
-                  <a href="login.html">Log out</a></span> -->
-
+                <i class="fa-solid fa-right-to-bracket"></i>
+                <a href="login.html">Log out</a></span> -->
+                
 
           <span class="sign-link">
             <a href="post.html"><button class="post">Post Jobs</button></a></span>
+            
+            <span class="sign-link" id="notification-icon">
+              <a href="notifications.html"> <i class="fa fa-bell" aria-hidden="true"></i></a>
+              </span>
+            
 
           <span class="profile-section">
             <img id="profile-picture" width='65px' height='50px' src='         
-              <?php 
-              if ($_SESSION["photo"]!=""){
-                echo$_SESSION["photo"];
-              }
-              else{
-                echo "img/abel.jpg";
-                
-              }?>
-              ' title='test' alt="profile">
+            <?php 
+            if ($_SESSION["photo"]!=""){
+              echo$_SESSION["photo"];
+            }
+            else{
+              echo "img/abel.jpg";
+              
+            }?>
+            ' title='test' alt="profile">
 
             <div class="more">
+              <div class="items" >
               <span class="sign-link">
                 <img id="profile-picture" width='65px' height='50px' src='
-                                      
-                    <?php 
-                    if ($_SESSION["photo"]!=""){
-                      echo$_SESSION["photo"];
-                    }
-                    else{
-                      echo "img/abel.jpg";
-                      
-                    }?>
-                    
-                    ' title='test' alt="profile">
-              </span>
-              <span class="sign-link">
-                <?php
-                  if($_SESSION['username']!=''  ){
-                  echo $_SESSION['username'];
+                                    
+                  <?php 
+                  if ($_SESSION["photo"]!=""){
+                    echo$_SESSION["photo"];
                   }
                   else{
-                    echo "test";
-                  }
-  
-                   
-                   
-                   
-                   
-                   ?>
+                    echo "img/abel.jpg";
+                    
+                  }?>
+                  
+                  ' title='test' alt="profile">
+              </span></div>
+              <div class="items">
+              <span class="sign-link">
+                <?php
+                if($_SESSION['username']!=''  ){
+                echo $_SESSION['username'];
+                }
+                else{
+                  echo "test";
+                }
+
+                 
+                 
+                 
+                 
+                 ?>
 
 
-              </span>
-
-
-
+              </span></div>
+<div class="items">
+              <span class="sign-link">
+                <i  class="fa fa-address-book-o" aria-hidden="true"></i>
+                <a href="profile.html"><span>Profile</span> </a>
+              
+            </span>
+          </div>
+          <div class="items">
               <span class="sign-link">
                 <i class="fa-solid fa-right-to-bracket"></i>
                 <a href="signup.html">log out</a></span>
-
-
-              <span class="sign-link">
+              </div>
+<!-- 
+  <div class="items">
+              
+    <span class="sign-link">
                 <i class="fa-solid fa-left-to-bracket"></i>
-                <a href="signup.html">settings</a></span>
+        <a href="signup.html">settings</a>
+    </span> 
+  </div> -->
             </div>
 
-          </span>
+          
         </div>
 
       </div>
       <div class="nav-links ">
         <ul>
-          <li>
-            <i class="fa-solid fa-user"></i>
-            <a href="profile.html"><span>Profile</span> </a>
-          </li>
-
+     
 
           <li>
 
@@ -176,6 +183,13 @@ else{
   </header>
 
 
+  <!-- the header section  -->
+
+  <div id="back-to-top">
+    <a href="#top"><img src="images/top.jpg" alt="top" height="10px" width="10px"> </a>
+  </div>
+
+ 
 
 
 
@@ -364,9 +378,12 @@ else{
               </ul>
             </div>
             <div>
-              <button>today</button>
+              <button>save</button>
               <button>apply</button>
             </div>
+            <br>
+            <p>Posted on 2023-04-14 10:20:52</p>
+            <p>Posted by: chalachube </p>
           </div>
           <div class="job-card">
             <div>
@@ -389,9 +406,12 @@ else{
               </ul>
             </div>
             <div>
-              <button>2 days ago</button>
+              <button>save </button>
               <button>apply</button>
             </div>
+            <br>
+            <p>Posted on 2023-04-14 10:20:52</p>
+            <p>Posted by: chalachube </p>
           </div>
           <div class="job-card">
             <div>
@@ -414,9 +434,12 @@ else{
               </ul>
             </div>
             <div>
-              <button>1 day ago</button>
+              <button>save</button>
               <button><a href="job.html">apply</a></button>
             </div>
+            <br>
+            <p>Posted on 2023-04-14 10:20:52</p>
+            <p>Posted by: chalachube </p>
           </div>
           <div class="job-card">
             <div>
@@ -439,9 +462,12 @@ else{
               </ul>
             </div>
             <div>
-              <button>1 day ago</button>
+              <button>apply</button>
               <button>apply</button>
             </div>
+            <br>
+        <p>Posted on 2023-04-14 10:20:52</p>
+        <p>Posted by: chalachube </p>
           </div>
 
 

@@ -1,4 +1,5 @@
 /*  */
+
 @media (min-width: 108px) {
   .sign{
     display: flex;
@@ -13,30 +14,6 @@
     /* margin: 0; */
   }
 
-  .profile-section .more {
-    position: absolute;
-    right: 10px;
-    border-radius: 5%;
-    background-color: #fff;
-    /* min-height: 150px; */
-    /* min-width: 200px; */
-    padding: 1em;
-    z-index: 20px;
-    flex-direction: column;
-    color: #fff;
-    padding: 1em;
-    align-items: center;
-    justify-content: center;
-    display: none;
-  }
-  .profile-section:hover .more {
-    /* display: flex; */
-  }
-  .profile-section.vis .more {
-    display: flex;
-    background-color: rgb(244, 246, 249);
-
-  }
 
   .nav-bar .nav-links.close #colapse {
     position: absolute;
@@ -134,7 +111,7 @@
     /* margin-left: 50px; */
   }
 
-  .nav-bar .logo-and-search-bar .sign .sign-link {
+  .nav-bar .logo-and-search-bar .sign .sign-link, .more .sign-link {
     color: white;
     font-size: 18px;
     text-decoration: none;
@@ -292,6 +269,14 @@
   .footer .hid {
     display: block;
   }
+
+
+
+
+
+
+
+
 }
 
 @keyframes slide-right {
@@ -336,6 +321,9 @@
 }
 
 @media (min-width: 600px) {
+  *{
+    margin: 4px;
+  }
 
   /* this is for when the screen is wider than 568px*/
   .footer {
@@ -374,4 +362,33 @@
   .footer .hid {
     display: none;
   }
+  .items{
+    margin: 4px ;
+  }
+  .profile-section .more {
+    position: absolute;
+    right: 10px;
+    border-radius: 5%;
+    background-color: #fff;
+    /* z-index: 20px; */
+    flex-direction: column;
+    color: #fff;
+    padding: 1em;
+    align-items: center;
+    justify-content: center;
+    display: none;
+    
+  }
+ 
+  .profile-section:hover .more {
+    /* display: flex; */
+  }
+  .profile-section.vis .more {
+    min-height: 150px ; 
+    min-width: 250px ; 
+    display: flex;
+    background-color: rgb(244, 246, 249);
+   
+  }
 }
+

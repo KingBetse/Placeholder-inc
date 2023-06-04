@@ -3,8 +3,11 @@
 include_once("classes\post.php");
 
 $post=new Post();
-
+$post->get_post($id);
 $post->get_some();
+$result=$post->name($row['user_id']);
+$r=$result[0];
+$username= $r['first_name'].$r['last_name'];
 
 $DB = new Database();   
 ?>
@@ -17,7 +20,7 @@ $DB = new Database();
                 $image=$row['image'];
         }
       
-        else {echo "ther is no image";}
+        else {echo "there is no image";}
        
         ?>  
          <img src="<?php echo $image ?>" alt="">
@@ -41,12 +44,13 @@ $DB = new Database();
 </div>
         <div>
          
-         <a class="button" href="profile.html"><button>today</button></a>
+         <a class="button" href="profile.html"><button>save</button></a>
          <a href="requirment.php"><button>apply</button></a>
 
         </div>
         <br>
         <p>Posted on <?php echo $row['date'];?></p>
+        <p>Posted by:<?php echo $username;?></p>
      </div>
 
 
