@@ -74,6 +74,18 @@ class Post{
                  return false;
              }
     }
+    public function get_one($id){
+        $DB = new Database();
+        $query="select * from post where user_id='$id' ";
+        $result=$DB->read($query);
+        if($result){ 
+                 return $result;
+     
+             }
+             else{
+                 return false;
+             }
+    }
     private function createUserid(){
         $length=rand(4,10);
         $number="";

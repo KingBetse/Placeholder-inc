@@ -5,6 +5,9 @@ include("classes\signin.php");
 $password='';
 $email='';
 
+unset($_SESSION['placeholder_userid']);
+
+  
 
 if($_SERVER['REQUEST_METHOD']=='POST'){
   $signin= new Signin();
@@ -12,19 +15,26 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
   $email=$_POST['email1'];
 $password=$_POST['password1'];
 
-  if($_POST['Remember']="on"){
-
+  if(isset($_POST['Remember'])){
 setcookie("userEmail",$email,time()+60*60*24*2);
 setcookie("userPassword",$password,time()+60*60*24*2);
-echo"Succes";
-var_dump($_COOKIE);
+
   }
 
 if($result!=''){
   echo $result;
 } 
 else{
- header("Location:index.html");
+  if($_SESSION['username']=='')
+    {header("Location:profile.html");
+  die;
+}
+  else{
+    header("Location:index.html");
+    die;
+  }
+      
+
 die;
 }
 
@@ -36,7 +46,7 @@ die;
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="Style\login.css" rel="stylesheet" />
+    <link href="styles\login.css" rel="stylesheet" />
     <title>Log in</title>
   </head>
   <body>
@@ -53,7 +63,7 @@ die;
   <br /> <br />
   <hr />
   <br /> 
-  <input type="email" name="email1" placeholder="&nbsp;&nbsp;Email" value="<?php if(!empty($_COOKIE['userEmail'])){echo$_COOKIE['userEmail'];} ?>" id="text" required/>
+  <input type="email" name="email1" placeholder="&nbsp;&nbsp;Email" value="<?php if(!empty($_COOKIE['userEmail'])){echo $_COOKIE['userEmail'];} ?>" id="text" required/>
   <br /><br />
 
   <input
@@ -67,11 +77,11 @@ die;
     required
   />
   <br /><br />
-  <?php//if(!empty($_COOKIE['userPassword'])&&!empty($_COOKIE['userPassword'])){ ?>
+  <?php if(!empty($_COOKIE['userPassword'])&&!empty($_COOKIE['userPassword'])){ ?>
   <input type="checkbox" name="Remember" checked value="Remember" />
-  <?php // }  else {?>
-    <!-- <input type="checkbox" name="Remember" checked value="Remember" /> -->
-    <?php // }?>
+  <?php }  else {?>
+    <input type="checkbox" name="Remember"  value="Remember" />
+    <?php }?>
   
   <label>Remember me</label>
   <br /><br />

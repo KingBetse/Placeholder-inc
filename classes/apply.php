@@ -10,7 +10,7 @@ class Apply{
     $description=addsLashes($data['apply']);
     
 
-  $query="insert into apply (user_id,post_id,descripion) values ('$usernum','$post_id','$description')";
+  $query="insert into apply (user_id,post_id,description) values ('$usernum','$post_id','$description')";
   $DB->insert($query);
     }
     public function verify($id){
@@ -26,6 +26,32 @@ class Apply{
     }
 
           
+}
+public function show($id){
+      
+  $DB = new Database();
+  $query="select * from apply where post_id= '$id' ";
+  $result=$DB->read($query);
+  if($result){ 
+    return $result;
+}
+else{
+    return false;
+}
+    
+}
+public function description(){
+      
+  $DB = new Database();
+  $query="select * from apply where post_id= '' ";
+  $result=$DB->read($query);
+  if($result){ 
+    return $result;
+}
+else{
+    return false;
+}
+
 }
 }
 ?>

@@ -9,47 +9,31 @@ $appply= new Apply();
 $app="";
 $result=$appply->verify($id);
 if($result){
-echo $post_id."</br>";
-$test=0;
-$app=$_POST['apply'];
-echo $app;
   foreach($result as $row){
-    // echo print_r($row)."</br>";
+    
 $ownPost_id=$row['post_id'];
      if($post_id === $ownPost_id ){
       header("Location:job.html");
       die;
-      
-      //break;
+
      }}
-    //  if($test==1){
-    //   echo $post_id;
-    //   echo"...";
-    //   echo $ownPost_id;
-      
-    //   // echo "</br>"."you can not apply for you rat  own job";
-    //  }
-     
-      // echo"abebe";
+    
       if($id!=''){
     if($_SERVER['REQUEST_METHOD']=='POST'){
            
     $appply->apply($_POST);
+    echo $_POST['apply'];
     header("Location:job.html");
     die;
     }
   
     }
     else{
+      unset($_SESSION['placeholder_userid']);
         header("Location:login.html");
       die;
     }
      }
-    
-  
-   
-
-
 
 ?>
 <!DOCTYPE html>
@@ -59,7 +43,7 @@ $ownPost_id=$row['post_id'];
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>reqirment</title>
-    <link rel="stylesheet" href="Style/style.css" />
+    <link rel="stylesheet" href="styles/style.css" />
 
 </head>
 <body>
@@ -122,14 +106,14 @@ $ownPost_id=$row['post_id'];
   <br /> <br />
  <lable>Why do you think you are eligiable to apply for this job</lable>
   <br />   <br /> 
-  <textarea name="apply" placeholder="write here"></textarea>
+  <textarea name="apply" placeholder="write here"  rows="6" cols="40" required></textarea>
   <br /><br />
 
   
   <br /><br />
 
   <!-- <a href="index.html"> -->
-  <button>
+  <button type="submit">
     submit
   </button>
   <br />

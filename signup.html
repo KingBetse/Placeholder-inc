@@ -11,7 +11,12 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     if($result!=''){
       echo $result;
     }
-    else{header("Location:login.html");
+    
+    else{
+      
+      setcookie("userEmail","",time()-(60*60*24*2));
+      setcookie("userPassword","",time()-(60*60*24*2));
+      header("Location:login.html");
     die;
     }}
     else{
@@ -31,7 +36,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="Style/login.css" rel="stylesheet" />
+    <link href="styles/login.css" rel="stylesheet" />
     <title>Sign Up</title>
   </head>
   <body>

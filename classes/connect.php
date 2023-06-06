@@ -19,9 +19,7 @@ function read($query){
         while($row=mysqli_fetch_assoc($result))
          {
             $data[]=$row;
-        //    echo"<pre>";
-        //     print_r($row);
-        //     echo"<pre>";   
+         
        
         }
         return $data;
@@ -38,9 +36,4 @@ function insert($query){
 }
 }
 
-// $DB =new Database;
-// $DB->insert("insert into users (password) value('12oo1')");
-// $DB->read("select * from users");
 
-//  $query="insert into users (first_name,last_name,gender,email) value('$first_name','$last_name','male','king.betse')";
-// echo mysqli_error($connection);
