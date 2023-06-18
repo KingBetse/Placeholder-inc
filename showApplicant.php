@@ -15,17 +15,19 @@ if($id!=''){
         if($result){
             echo "<h2>Search Results:</h2>";
             echo "<table>";
-            echo "<tr><th>Full Name</th> <th>Email</th> <th>Requirment</th><th>Action</th></tr>";
+            echo "<tr><th>Full Name</th> <th>Email</th><th>CV</th> <th>Requirment</th><th>Action</th></tr>";
             
             foreach($result as $row){
                 $r=$user->get_user($row['user_id']);
                 // print_r($r);
+                echo $row['CV'];
                 echo "<tr>";
                     echo "<td>" .$r['first_name']." ".$r['last_name']. "</td>";
-                    echo "<td>" .$r['email']." ". "</td>";
-                echo "<td>" . $row['description'] . "</td>";
-                echo "<td> " ."<a href='accepted.php?id=". $row['post_id']."'><button>Accept</button></a>"."<a href='decline.php?delete=". $row['description']."'><button>Delete</button></a>"." </td>"; 
-                echo "</tr>";
+                    echo "<td>" .$r['email']." ". "</td>";               
+                    echo "<td> <a href='".$row['CV']."'><button>CV</button></a> </td>";
+                    echo "<td>" . $row['description'] . "</td>";
+                    echo "<td> " ."<a href='accepted.php?id=". $row['post_id']."'><button>Accept</button></a>"."<a href='decline.php?delete=". $row['description']."'><button>Delete</button></a>"." </td>"; 
+                    echo "</tr>";
             }
         }
         else{

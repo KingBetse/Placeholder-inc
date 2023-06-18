@@ -14,14 +14,24 @@ class Post{
         $closed= addsLashes($data['closed']);
         $postid = $this->createUserid();
         $userid=$_SESSION['placeholder_userid'];
+
+
+        $skills=$data['skill'];
+  
+        if($skills){
+        foreach($skills as $row){
+          $queryy="insert into post_skill (post_id,skills) values ('$postid','$row')";
+          $DB->insert($queryy);
+        }
+      }
+
+
         
         $DB = new Database();
        $query="insert into post (post_id ,job_title,job_type,work_location,vacancies,needed,work_experiance,salary,closed,user_id) values ('$postid','$job_title','$job_type','$Work_loc','$vacancies','$needed',' $work_exp','$salary','$closed','$userid')";
         
         $DB->insert($query);
-        // echo "<pre>";
-        // print_r($_POST);
-        // echo "<pre>";}
+     
     }
     public function get_post($id){
         $DB = new Database();
@@ -85,6 +95,39 @@ class Post{
              else{
                  return false;
              }
+    }
+    public function post_all($id){
+        $DB = new Database();
+        $query="select * from post where post_id='$id' ";
+        $result=$DB->read($query);
+        if($result){ 
+                 return $result;
+     
+             }
+             else{
+                 return false;
+             }
+    }
+    public function IDK($id){
+        $DB = new Database();
+    $query="select * from skills where user_id ='$id'";
+    $result=$DB->read($query);
+    if($result){
+        foreach($result as $row){
+            $query2="select post_id from post_skill where skills= '$row['skill']'";
+            $post_id=$DB->read($query2);
+
+            $query3="select * from post  where post_id='$post_id'";
+            $all=$DB->read($query3);
+        }
+        return $all;
+
+    }
+    else
+    {
+        return false;
+    }
+
     }
     private function createUserid(){
         $length=rand(4,10);

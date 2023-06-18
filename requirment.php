@@ -17,14 +17,46 @@ $ownPost_id=$row['post_id'];
       die;
 
      }}
+    }
     
       if($id!=''){
     if($_SERVER['REQUEST_METHOD']=='POST'){
-           
+
+    //   if (isset($_FILES['cv']) && $_FILES['cv']['error'] == 0) {
+    //     $upload_dir = 'uploads/CV/'; // Specify the upload directory
+    //     $file_name = basename($_FILES['cv']['name']); // Get the file name
+    //     $target_file = $upload_dir . $file_name; // Set the target file path
+
+    //     // Check if the file is a PDF
+    //     $file_type = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+    //     if ($file_type == 'pdf') {
+    //         // Move the uploaded file to the target directory
+    //         if (move_uploaded_file($_FILES['cv']['tmp_name'], $target_file)) {
+    //           $sql="INSERT INTO apply(CV) VALUES('$target_file')";
+    //           $DB= new Database();
+    //       $DB->insert($sql);    
+          
+    //             echo "Your CV has been uploaded successfully.";
+    //         } else {
+    //             echo "An error occurred while uploading your CV.";
+    //             header("'Location:requirment.php?id=. echo $post_id;'");
+    //         die;
+    //         }
+    //     } else {
+    //         echo "Only PDF files are allowed.";
+    //         header("'Location:requirment.php?id=. echo $post_id;'");
+    //         die;
+    //     }
+    // } else {
+    //     echo "No file was uploaded or there was an error during the upload.";
+    //     header("'Location:requirment.php?id=. echo $post_id;'");
+    //     die;
+    // }
+   
+    
     $appply->apply($_POST);
-    echo $_POST['apply'];
-    header("Location:job.html");
-    die;
+    // header("Location:job.html");
+    // die;
     }
   
     }
@@ -33,7 +65,8 @@ $ownPost_id=$row['post_id'];
         header("Location:login.html");
       die;
     }
-     }
+     
+   
 
 ?>
 <!DOCTYPE html>
@@ -101,8 +134,14 @@ $ownPost_id=$row['post_id'];
     
 
     <div class ="mid">
-    <form action="" method="post" name="register">
-
+    <form action="" method="post" name="register" enctype="multipart/form-data">
+    
+   
+    <br /> <br />
+    <div class="CV">
+        <h3>uplode your CV</h3>
+        <input type="file" name="cv" placeholder="" />
+      </div>
   <br /> <br />
  <lable>Why do you think you are eligiable to apply for this job</lable>
   <br />   <br /> 

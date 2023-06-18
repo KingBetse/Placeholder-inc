@@ -15,8 +15,19 @@ public function getProf($data){
     $education=addsLashes($data['education']);
     $country=addsLashes($data['country']);
 
+  $skills=$data['skill'];
+  
+    if($skills){
+    foreach($skills as $row){
+      $queryy="insert into skills (user_id,skill) values ('$usernum','$row')";
+      $DB->insert($queryy);
+    }
+  }
+    
 
-   
+
+ 
+
     // if($result=""){
     //   echo "unkown account";
     // }

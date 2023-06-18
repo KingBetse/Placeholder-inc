@@ -19,6 +19,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
   $signin=new Signin();
   $result=$signin->check_login($id);
 
+  
   if($result){
     $user= new User();
     $user_data=$user->get_data($id);
@@ -37,6 +38,17 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
           $query ="update users set image= '$filename' where user_id='$id'";
           $DB=new Database();
           $DB->insert($query);
+          
+          $query="select * from users where user_id='$id' limit 1";
+          $result=$DB->read($query);
+          if($result){ 
+          $row=$result[0];
+          if($password==$row['password']){
+            $_SESSION['username']= $row['first_name'];
+            $_SESSION['photo']= $row['image'];
+        }}
+
+
     
         }
         } 
@@ -219,11 +231,11 @@ else{
   <form action="#" class="form" method="post" enctype="multipart/form-data">
     <div class="input-box">
       <label>First Name</label>
-      <input type="text" name='firstName'placeholder="Enter full name" required />
+      <input type="text" name='firstName'placeholder="Enter first name" required value=""/>
     </div>
     <div class="input-box">
       <label>Last Name</label>
-      <input type="text" name='lastName' placeholder="Enter full name" required />
+      <input type="text" name='lastName' placeholder="Enter last name" required />
     </div>
     
  
@@ -241,7 +253,7 @@ else{
       <div class="gender-option">
         <div class="gender">
           <input type="radio" id="check-male" name="gender" checked value="male"/>
-          <label for="check-male">male</label>
+          <label for="check-male">Male</label>
         </div>
         <div class="column">
           <div class="gender">
@@ -249,6 +261,7 @@ else{
             <label for="check-female">Female</label>
           </div>
         </div>
+       
       </div>
       <div class="column">
         <div class="select-box">
@@ -276,6 +289,39 @@ else{
         <input type="file" name="photo" placeholder="" />
       </div>
 
+    </div>
+    <label>Skill</label>
+  <br/>
+      <div class="column">
+     <label>Frontend</label>
+     <input type="checkbox" name="skill[]" value="Frontend">
+
+      <label>Backend</label>
+    <input type="checkbox" name="skill[]" value="Backend">
+
+    <label>Fullstack</label>
+    <input type="checkbox" name="skill[]" value="Fullstack">
+
+    <label>Business</label>
+   <input type="checkbox" name="skill[]" value="Business">
+
+    <label>Tutoring</label>
+    <input type="checkbox" name="skill[]" value="Tutoring">
+
+    <label>eComerse</label>
+    <input type="checkbox" name="skill[]" value="eCommerse">
+
+    <label>Graphic Design</label>
+   <input type="checkbox" name="skill[]" value="Graphic Design">
+
+    <label>Translator</label>
+    <input type="checkbox" name="skill[]" value="Translator">
+
+    <label>Another Job</label>
+    <input type="checkbox" name="skill[]" value="Another Job">
+
+    
+    </div>
       
        
 

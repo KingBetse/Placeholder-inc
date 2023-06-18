@@ -28,7 +28,7 @@ $DB = new Database();
                 $image=$row['image'];
         }
       
-        else {echo "there is no image";}
+        else {echo "ther is no image";}
        
         ?>  
          <img src="<?php echo $image ?>" alt="">
@@ -49,12 +49,7 @@ $DB = new Database();
   
 </ul>
 </div>
-        <div>
-         
-       
-         <a href="requirment.php?id=<?php echo $row['post_id']?>"> <button>apply</button></a>
-
-        </div>
+     
         <br>
         <p>Posted on <?php echo $row['date'];?></p>
      </div>
