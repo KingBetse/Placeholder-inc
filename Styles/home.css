@@ -267,6 +267,7 @@ body {
   position: relative;
   scroll-behavior: smooth;
 }
+
 .recent-jobs h3 {
   text-align: center;
   margin-top: 50px;
@@ -276,6 +277,7 @@ body {
 }
 .job-card {
   min-width: 350px;
+  max-width: 450px;
   padding-top: 30px;
   padding-bottom: 50px;
   padding-left: 10px;

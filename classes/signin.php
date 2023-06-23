@@ -13,8 +13,11 @@ class Signin{
         $row=$result[0];
         if($password==$row['password']){
             $_SESSION['placeholder_userid']= $row['user_id'];
+            $_SESSION['user']=$row['user'];
             $_SESSION['username']= $row['first_name'];
             $_SESSION['photo']= $row['image'];
+            $_SESSION['user']= $row['user'];
+
         }
         else{ $this->error.="wrong password <br>";}
         

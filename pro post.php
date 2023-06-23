@@ -46,7 +46,7 @@ $DB = new Database();
         <div>
          
        
-         <a href="showApplicant.php?id=<?php echo $row['post_id']?>"> <button>How many people applied</button></a>
+         <a href="showApplicant.php?id=<?php echo $row['post_id']?>"> <button>How many applied</button></a>
          <a href="delete post.php?id=<?php echo $row['post_id']?>"> <button>Delete</button></a>
 
         </div>

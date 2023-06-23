@@ -10,6 +10,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     $result=$signup->createUser($_POST);
     if($result!=''){
       echo $result;
+     
     }
     
     else{
@@ -51,6 +52,15 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
           ><button name="submit" type="submit"  id="Btn1"><!--<img src ="img\Yootheme-Social-Bookmark-Social-facebook-button-blue.512.png" alt="" height="20"width=""/>--> Sign Up with facebook</button></a>
         <br /><br />
         <hr />
+        <br>
+        <div class="select-box">
+          <select name="useStat">
+            <option hidden>C</option>
+            <option >Employers</option>
+            <option >Freelancer</option>
+           
+          </select>
+        </div>
         <br />
         <input name="email1" type="email"  placeholder="&nbsp;&nbsp;Email" id="text" required  />
         <br /><br />

@@ -17,11 +17,11 @@ $DB->insert($query);
     die;
 
       }else{
-        header("Location:login.html");
+        header("Location:login.php");
       die;
       }}
 else{
-    header("Location:login.html");
+    header("Location:login.php");
     die;
 }
 ?>

@@ -26,17 +26,23 @@ private $error='';
         $email= addsLashes($data['email1']);
         $password=addsLashes($data['password1']);
         $userID = $this->createUserid();
+        $userStat=addsLashes($data['useStat']);
         
         $DB = new Database();
-
+    if($userStat =="Employers"){
+$userStat=1;
+    }
+    else{
+       $userStat=0; 
+    }
 
         $query1="select * from users where email='$email' limit 1";
         $result=$DB->read($query1);
         if($result){ 
-         $this->error.="email already in use";
+         $this->error.="emaill already in use";
         }else{
             
-            $query="insert into users (user_id,email,password) values ('$userID','$email','$password')";
+            $query="insert into users (user_id,email,password,user) values ('$userID','$email','$password','$userStat')";
         
         $DB->insert($query);
         }

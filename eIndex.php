@@ -9,7 +9,7 @@ include("classes\post.php");
 
 //checking if the user is logined in
 //print_r($_COOKIE['userEmail']);
-;
+
 $id=$_SESSION['placeholder_userid'];
 if($id!=''){
 if(isset($_SESSION['placeholder_userid'])&&is_numeric($_SESSION['placeholder_userid']))
@@ -22,8 +22,8 @@ if(isset($_SESSION['placeholder_userid'])&&is_numeric($_SESSION['placeholder_use
     $user= new User();
     $user_data=$user->get_data($id);
   }else{
-    if(id)
-    header("Location:login.html");
+ 
+    header("Location:login.php");
   die;
   }
 }
@@ -32,8 +32,8 @@ $post=new Post();
 $posts=$post->get_some();
 }
 else{
-  unset($_SESSION['placeholder_userid']);
-  header("Location:login.html");
+ 
+  header("Location:login.php");
   die;
 }
 
@@ -78,15 +78,15 @@ else{
         <div class="sign">
           <!-- <span class="sign-link">
                   <i class="fa-solid fa-right-to-bracket"></i>
-                  <a href="login.html">Log out</a></span> -->
+                  <a href="login.php">Log out</a></span> -->
                   <span class="sign-link">
                     <i class="fa-solid fa-house"></i>
                     <!-- <a href="" class="link">Home</a> -->
-                    <a href="notification.php">Notification </a>
+                    <a href="showApplicant.php">Notification </a>
                     </span> 
 
           <span class="sign-link">
-            <a href="post.html"><button class="post">Post Jobs</button></a></span>
+            <a href="post.php"><button class="post">Post Jobs</button></a></span>
 
             <span class="profile-section">
               <img id="profile-picture" width='50px' height='50px' src='         
@@ -140,7 +140,7 @@ else{
 
                 </i>
                   <i class="fa-solid fa-user"></i>
-                  <a href="profile.html"> Profile   </a></span> 
+                  <a href="eUprofile.php"> Profile   </a></span> 
                   
                   
 
@@ -168,7 +168,7 @@ else{
 
             <i class="fa-solid fa-house"></i>
             <!-- <a href="" class="link">Home</a> -->
-            <a href="index.html"><span>Home</span> </a>
+            <a href="eIndex.php"><span>Home</span> </a>
           </li>
 
           
@@ -177,11 +177,11 @@ else{
 
           <li>
             <i class="fa-solid fa-user-doctor"></i>
-            <a href="job.html"><span>Jobs</span></a>
+            <a href="post.php"><span>Post Jobs</span></a>
           </li>
           <li>
             <i class="fa-regular fa-address-card"></i>
-            <a href="about.html"><span>About</span></a>
+            <a href="about.php"><span>About</span></a>
           </li>
         </ul>
         <div>
@@ -209,8 +209,8 @@ else{
 
   <div class="back-ground">
     <div class="intro-button">
-      <div><a href="post.html"><button class="btn-hire">Hire a Freelancer</button></a></div>
-      <div><a href="job.html"><button class="btn-earn">Earn Money</button></a></div>
+      <div><a href="post.php"><button class="btn-hire">Hire a Freelancer</button></a></div>
+      
     </div>
     <br>
   </div>
@@ -381,7 +381,7 @@ else{
               </ul>
             </div>
             <div>
-              <a href="save.php?id=<?php echo $row['post_id']?>"><button>apply</button></a>
+              <a href="save.php?id=<?php echo $row['post_id']?>"><button>save</button></a>
               <button>apply</button>
             </div>
           </div>
@@ -406,7 +406,7 @@ else{
               </ul>
             </div>
             <div>
-              <!-- <button>2 days ago</button> -->
+              <button>save</button>
               <button>apply</button>
             </div>
           </div>
@@ -431,8 +431,8 @@ else{
               </ul>
             </div>
             <div>
-              <!-- <button>1 day ago</button> -->
-              <button><a href="job.html">apply</a></button>
+              <button>save</button>
+              <button><a href="job.php">apply</a></button>
             </div>
           </div>
           <div class="job-card">
@@ -456,7 +456,7 @@ else{
               </ul>
             </div>
             <div>
-              <!-- <button>1 day ago</button> -->
+              <button>save</button>
               <button>apply</button>
             </div>
           </div>
@@ -486,7 +486,7 @@ else{
       </div>
 
       <div class="explore-more-jobs">
-        <a href="job.html"><button>Explore more Jobs</button></a>
+        <a href="job.php"><button>Explore more Jobs</button></a>
         <button>find qualified workers</button>
       </div>
 
@@ -525,33 +525,33 @@ else{
         <div class="about">
           <p>
           <h3 id="about">FAQ</h3>
-          <p><a href="About.html">How do i register?</a></p>
-          <p><a href="About.html">How to apply for a job?</a></p>
-          <p><a href="About.html">How do I reset my password?</a></p>
-          <p><a href="About.html">how do i edit my cv?</a></p>
-          <p><a href="About.html">how do i get notification?</a></p>
-          <p><a href="About.html">what makes this platform different?</a></p>
+          <p><a href="About.php">How do i register?</a></p>
+          <p><a href="About.php">How to apply for a job?</a></p>
+          <p><a href="About.php">How do I reset my password?</a></p>
+          <p><a href="About.php">how do i edit my cv?</a></p>
+          <p><a href="About.php">how do i get notification?</a></p>
+          <p><a href="About.php">what makes this platform different?</a></p>
           </p>
           <hr class="hid">
         </div>
         <div class="about">
           <p>
           <h3 id="about">About</h3>
-          <p><a href="About.html">About us</a></p>
-          <p><a href="About.html">how it works</a></p>
-          <p><a href="About.html">Careers</a></p>
-          <p><a href="About.html">accessibility</a></p>
-          <p><a href="About.html">advertising</a></p>
+          <p><a href="About.php">About us</a></p>
+          <p><a href="About.php">how it works</a></p>
+          <p><a href="About.php">Careers</a></p>
+          <p><a href="About.php">accessibility</a></p>
+          <p><a href="About.php">advertising</a></p>
           </p>
           <hr class="hid">
         </div>
         <div class="terms">
           <p>
           <h3 id="terms">Terms</h3>
-          <p><a href="terms.html">Privacy Policy</a></p>
-          <p><a href="terms.html"> Terms and Conditions</a></p>
-          <p><a href="terms.html"> Copyright Policy</a></p>
-          <p><a href="terms.html"> Code of Conduct</a></p>
+          <p><a href="terms.php">Privacy Policy</a></p>
+          <p><a href="terms.php"> Terms and Conditions</a></p>
+          <p><a href="terms.php"> Copyright Policy</a></p>
+          <p><a href="terms.php"> Code of Conduct</a></p>
           <!-- <p><a href=""><font color="azure"> Fees and Charges</font></a></p> -->
           </p>
           <hr class="hid">
@@ -560,9 +560,9 @@ else{
         <div class="about">
           <p>
           <h3 id="about">contact us</h3>
-          <p><a href="About.html">aastugroup1@gmail.com</a></p>
-          <p><a href="About.html">+251953101912</a></p>
-          <p><a href="About.html"> AASTU, Tulu Dimtu, Addis Ababa, Ethiopia</a></p>
+          <p><a href="About.php">aastugroup1@gmail.com</a></p>
+          <p><a href="About.php">+251953101912</a></p>
+          <p><a href="About.php"> AASTU, Tulu Dimtu, Addis Ababa, Ethiopia</a></p>
           </p>
           <hr class="hid">
         </div>
@@ -573,30 +573,30 @@ else{
         <div class="about">
           <p>
           <h3 id="about">Job seekers</h3>
-          <p><a href="About.html">Find Jobs</a></p>
-          <p><a href="About.html">Register</a></p>
-          <p><a href="About.html">post CV</a></p>
-          <p><a href="About.html">Job Alerts</a></p>
+          <p><a href="About.php">Find Jobs</a></p>
+          <p><a href="About.php">Register</a></p>
+          <p><a href="About.php">post CV</a></p>
+          <p><a href="About.php">Job Alerts</a></p>
           </p>
           <hr class="hid">
         </div>
         <div class="about">
           <p>
           <h3 id="about">Employers</h3>
-          <p><a href="About.html">Log in</a></p>
-          <p><a href="About.html">Register</a></p>
-          <p><a href="About.html">post Jobs</a></p>
-          <p><a href="About.html">services</a></p>
+          <p><a href="About.php">Log in</a></p>
+          <p><a href="About.php">Register</a></p>
+          <p><a href="About.php">post Jobs</a></p>
+          <p><a href="About.php">services</a></p>
           </p>
           <hr class="hid">
         </div>
         <div class="terms">
           <p>
           <h3 id="terms">work with us</h3>
-          <p><a href="terms.html">Contact Admin</a></p>
-          <p><a href="terms.html">Become partner</a></p>
-          <p><a href="terms.html"> Explor</a></p>
-          <p><a href="terms.html"> Code of Conduct</a></p>
+          <p><a href="terms.php">Contact Admin</a></p>
+          <p><a href="terms.php">Become partner</a></p>
+          <p><a href="terms.php"> Explor</a></p>
+          <p><a href="terms.php"> Code of Conduct</a></p>
           <!-- <p><a href=""><font color="azure"> Fees and Charges</font></a></p> -->
           </p>
           <hr class="hid">
@@ -605,10 +605,10 @@ else{
         <div class="about">
           <p>
           <h3 id="about">useful links</h3>
-          <p><a href="About.html">ehio job</a></p>
-          <p><a href="About.html">alibaba</a></p>
-          <p><a href="About.html">freelancers</a></p>
-          <p><a href="About.html">remote work</a></p>
+          <p><a href="About.php">ehio job</a></p>
+          <p><a href="About.php">alibaba</a></p>
+          <p><a href="About.php">freelancers</a></p>
+          <p><a href="About.php">remote work</a></p>
           </p>
           <hr class="hid">
         </div>

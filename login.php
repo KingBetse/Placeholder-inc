@@ -6,8 +6,9 @@ $password='';
 $email='';
 
 unset($_SESSION['placeholder_userid']);
+unset($_SESSION['user']);
 
-  
+
 
 if($_SERVER['REQUEST_METHOD']=='POST'){
   $signin= new Signin();
@@ -25,17 +26,31 @@ if($result!=''){
   echo $result;
 } 
 else{
-  if($_SESSION['username']=='')
-    {header("Location:profile.html");
-  die;
+  //employer is 1 and freelancer is 0
+  if($_SESSION['username']==''){
+  if($_SESSION['user']==1)
+    { 
+      header("Location:profile.php");
+      die;
 }
   else{
-    header("Location:index.html");
+    header("Location:eProfile.php");
     die;
   }
+}
+  else{
+    if($_SESSION['user']==1){
       
-
-die;
+      header("Location:eIndex.php");
+      die;
+    }
+    else{
+      header("Location:index.php");
+      die;
+    }
+    
+  }
+      
 }
 
 }
@@ -87,7 +102,7 @@ die;
   <br /><br />
   <a href="forgot.php" align="right">Forgot Password?</a>
   <br /><br />
-  <!-- <a href="index.html"> -->
+  <!-- <a href="index.php"> -->
   <button type="submit" name="submit" id="Btn">
     Log in</a>
   </button>
@@ -96,7 +111,7 @@ die;
 <br />
 <hr />
 <br />
-Don't have an account?<br /> <br /><a href="signup.html">Sign Up</a>
+Don't have an account?<br /> <br /><a href="signup.php">Sign Up</a>
 
 <br /><br />
 </div>

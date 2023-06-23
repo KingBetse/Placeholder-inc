@@ -59,9 +59,25 @@ class Post{
             return false;
         }
     }
+    public function get_saved($idd){
+        $DB = new Database();
+        $query="select * from post JOIN saved where  `saved`.`post_id` = `post`.`post_id` AND  `saved`.`user_id` ='$idd' ";
+        $result=$DB->read($query);
+        if($result){ 
+                 return $result;
+     
+             }
+             else{
+                 return false;
+             }
+
+
+
+    }
+    
     public function get_all(){
         $DB = new Database();
-        $query="select * from post order by id desc limit 10";
+        $query="select * from post order by id desc";
         $result=$DB->read($query);
         if($result){ 
                  return $result;
@@ -72,6 +88,20 @@ class Post{
              }
 
     }
+    public function get_moderate($limit, $offset){
+        $DB = new Database();
+        $query="select * from post order by id desc limit $limit offset $offset ";
+        $result=$DB->read($query);
+        if($result){ 
+                 return $result;
+     
+             }
+             else{
+                 return false;
+             }
+
+    }
+
     public function get_some(){
         $DB = new Database();
         $query="select * from post order by id desc limit 5";
@@ -108,19 +138,56 @@ class Post{
                  return false;
              }
     }
+    public function get_skills($id){
+        $DB = new Database();
+    $query="select skill from skills where user_id ='$id'";
+    $result=$DB->read($query);
+if($result)return $result;
+else return false;
+}
+
+
     public function IDK($id){
         $DB = new Database();
-    $query="select * from skills where user_id ='$id'";
+    $query="select skill from skills where user_id ='$id'";
     $result=$DB->read($query);
+    // print_r($result);
+    echo"<br>";
     if($result){
+        $out=array();
+        
         foreach($result as $row){
-            $query2="select post_id from post_skill where skills= '$row['skill']'";
-            $post_id=$DB->read($query2);
+            $sk= $row['skill'];
+            $query2="SELECT post_id FROM post_skill where skills = '$sk' " ;
+            // print($query2);
+            $post_id= $DB->read($query2);
+            // print_r($post_id);
+    echo"<br>";
 
-            $query3="select * from post  where post_id='$post_id'";
+            // POST ID IS EITHER FALSE OR SOME 1/2D ARRAY
+            if( $post_id){ 
+            foreach($post_id as $r){
+            $id=$r['post_id'];
+            $query3="select * from post  where post_id= '$id'";
+            // echo"<br>". $query3 ."<br>";
             $all=$DB->read($query3);
+            if( $all){ 
+
+    // echo"<br>";
+
+    //             print_r($all);
+    // echo"<br>";
+
+
+    $out=array_merge($all,$out);
+            };
+        };
         }
-        return $all;
+        }
+        // echo "<br><br><br><br>";
+        // print_r($out);
+        // echo "<br><br><br><br>";
+        return $out;
 
     }
     else

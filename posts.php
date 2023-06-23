@@ -28,7 +28,7 @@ $DB = new Database();
                 $image=$row['image'];
         }
       
-        else {echo "there is no image";}
+        else {  $image="images\jobs\more.png";}
        
         ?>  
          <img src="<?php echo $image ?>" alt="">
@@ -51,7 +51,7 @@ $DB = new Database();
 </div>
         <div>
          
-       
+        <a href="classes/saved.php?id=<?php echo $row['post_id']?>"> <button>save</button></a>
          <a href="requirment.php?id=<?php echo $row['post_id']?>"> <button>apply</button></a>
 
         </div>
