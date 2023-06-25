@@ -6,7 +6,7 @@ class Database{
   private   $db="placeholder";
 
 function  connect(){
-    $connection=mysqli_connect($this->host,$this->username,$this->password,$this->db,3309);
+    $connection=mysqli_connect($this->host,$this->username,$this->password,$this->db,3306);
     return $connection;
 }
 function read($query){

@@ -50,10 +50,17 @@
 }
 .input-box input:focus {
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+  max-width: fit-content;
 }
+
 .form .column {
+  position: relative;
   display: flex;
   column-gap: 15px;
+  flex-wrap: wrap;
+  align-items: center;
+  column-gap: 50px;
+
 }
 .form .gender-box {
   margin-top: 20px;

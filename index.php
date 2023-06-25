@@ -87,8 +87,8 @@ else{
                   if($_SESSION['user']==0){
 echo '
                   <span class="sign-link">
-                    <i class="fa-solid fa-house"></i>
-                    <!-- <a href="" class="link">Home</a> -->
+                    <i class="fa-solid fa-bell"></i>
+                   
                     <a href="notification.php">Notification </a>
                     </span> ';}
                     if($_SESSION['user']==1){
@@ -159,8 +159,8 @@ echo '
                     echo '
 
                     <span class="sign-link">
-                        <i class="fa-solid fa-house"></i>
-                        <!-- <a href="" class="link">Home</a> -->
+                        <i class="fa-thin fa-list"></i>
+                        
                         <a href="pro page.php">my posts </a>
                       </span> ';
                     }
@@ -202,6 +202,7 @@ echo '
             <a href="saved.php"><span>Bookmarks</span></a>
           </li>';
         }else{
+         
           
 
         }
@@ -391,18 +392,21 @@ else{
     <div class="temp-css"></div>
     <div class="temp-css2"></div>
 
-
+    
     <div class="recent-jobs">
-
+    <?php
+        if($_SESSION['user']==0){
+          echo '
       <h3>Recent Jobs</h3>
  
-      <div class='test'>
-        <i class='fa fa-arrow-left' onclick="rights()"></i>
-        <i class='fa fa-arrow-right' onclick="lefts()"></i>
-
-
-
-        <div class='job-container'>
+      <div class="test">
+        <i class="fa fa-arrow-left" onclick="rights()"></i>
+        <i class="fa fa-arrow-right" onclick="lefts()"></i>
+        <div class="job-container">
+      
+        ';
+      }
+        ?>
           
        <?php
 
@@ -418,25 +422,31 @@ if($_SESSION["user"]==0){
 
           }
     ?>
-
+<?php
+        
+          echo '
        </div>
-
       </div>
       
+      <div class="explore-more-jobs">';
 
-      <div class="explore-more-jobs">
-        <?php
-        if($_SESSION['user']==0){
-          echo '
-        <a href="job.php"><button>Explore more Jobs</button></a> ';}
+      if($_SESSION['user']==0){
+        echo '
+        <a href="job.php"><button>Explore more Jobs</button></a> ';
+      }
         else{
           echo '
         <button>find qualified workers</button>';
       
       }
-      ?>
-      </div>
+      
 
+echo '
+      </div>';
+
+
+
+      ?>
     </div>
 
 

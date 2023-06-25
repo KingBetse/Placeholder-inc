@@ -59,7 +59,8 @@ else{
 
 
 
-  <header>
+
+<header>
     <nav class="nav-bar" id="nav">
       <div class="logo-and-search-bar">
         <div class="logo">
@@ -77,8 +78,8 @@ else{
                   if($_SESSION['user']==0){
 echo '
                   <span class="sign-link">
-                    <i class="fa-solid fa-house"></i>
-                    <!-- <a href="" class="link">Home</a> -->
+                    <i class="fa-solid fa-bell"></i>
+                   
                     <a href="notification.php">Notification </a>
                     </span> ';}
                     if($_SESSION['user']==1){
@@ -149,8 +150,8 @@ echo '
                     echo '
 
                     <span class="sign-link">
-                        <i class="fa-solid fa-house"></i>
-                        <!-- <a href="" class="link">Home</a> -->
+                        <i class="fa-thin fa-list"></i>
+                        
                         <a href="pro page.php">my posts </a>
                       </span> ';
                     }
@@ -192,6 +193,7 @@ echo '
             <a href="saved.php"><span>Bookmarks</span></a>
           </li>';
         }else{
+         
           
 
         }

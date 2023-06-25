@@ -60,14 +60,22 @@ else{
           <!-- <span class="sign-link">
                   <i class="fa-solid fa-right-to-bracket"></i>
                   <a href="login.php">Log out</a></span> -->
+                  <?php
+                  //if 1 employer 0 frelancer
+                  if($_SESSION['user']==0){
+echo '
                   <span class="sign-link">
-                    <i class="fa-solid fa-house"></i>
-                    <!-- <a href="" class="link">Home</a> -->
-                    <a href="showApplicant.php">Notification </a>
-                    </span> 
-
+                    <i class="fa-solid fa-bell"></i>
+                   
+                    <a href="notification.php">Notification </a>
+                    </span> ';}
+                    if($_SESSION['user']==1){
+                      echo '
           <span class="sign-link">
-            <a href="post.php"><button class="post">Post Jobs</button></a></span>
+            <a href="post.php"><button class="post">Post Jobs</button></a></span>';
+          }
+
+            ?>
 
             <span class="profile-section">
               <img id="profile-picture" width='50px' height='50px' src='         
@@ -121,17 +129,20 @@ else{
 
                 </i>
                   <i class="fa-solid fa-user"></i>
-                  <a href="eUprofile.php"> Profile   </a></span> 
+                  <a href="profile.php"> Profile   </a></span> 
                   
-                  
+                  <?php
+                  //if 1 employer 0 frelancer
+                  if($_SESSION['user']==1){
+                    echo '
 
                     <span class="sign-link">
-                        <i class="fa-solid fa-house"></i>
-                        <!-- <a href="" class="link">Home</a> -->
+                        <i class="fa-thin fa-list"></i>
+                        
                         <a href="pro page.php">my posts </a>
-                      </span> 
-                  
-               
+                      </span> ';
+                    }
+               ?>
 
 
             </div>
@@ -154,12 +165,27 @@ else{
 
           
 
-         
+         <?php
+         if($_SESSION['user']==0){
 
+echo '
           <li>
             <i class="fa-solid fa-user-doctor"></i>
-            <a href="post.php"><span>Post Jobs</span></a>
-          </li>
+            <a href="job.php"><span>Jobs</span></a>
+          </li>';
+
+          echo '
+          <li>
+            <i class="fa-solid fa-user-doctor"></i>
+            <a href="saved.php"><span>Bookmarks</span></a>
+          </li>';
+        }else{
+         
+          
+
+        }
+
+?>
           <li>
             <i class="fa-regular fa-address-card"></i>
             <a href="about.php"><span>About</span></a>
@@ -171,7 +197,8 @@ else{
         </div>
     </nav>
 
-</header>
+  </header>
+
 
 
 

@@ -225,7 +225,7 @@ else{
   
             echo '
             <li>
-              <i class="fa-solid fa-user-doctor"></i>
+              <i class="fa-thin fa-star"></i>
               <a href="saved.php"><span>Bookmarks</span></a>
             </li>';
           }else{

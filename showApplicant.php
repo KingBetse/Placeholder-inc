@@ -41,6 +41,7 @@ if($id!=''){
     <title>Applicants</title>
     <link rel="stylesheet" href="styles/style.css" />
     <link rel="stylesheet" href="styles/job.css" />
+    
     <script src="https://kit.fontawesome.com/6bed12e9d5.js" crossorigin="anonymous"></script>
     
     <style>
@@ -61,6 +62,7 @@ if($id!=''){
     </style>
 </head>
 <body>
+
 <header>
     <nav class="nav-bar" id="nav">
       <div class="logo-and-search-bar">
@@ -73,15 +75,23 @@ if($id!=''){
         <div class="sign">
           <!-- <span class="sign-link">
                   <i class="fa-solid fa-right-to-bracket"></i>
-                  <a href="login.html">Log out</a></span> -->
+                  <a href="login.php">Log out</a></span> -->
+                  <?php
+                  //if 1 employer 0 frelancer
+                  if($_SESSION['user']==0){
+echo '
                   <span class="sign-link">
-                    <i class="fa-solid fa-house"></i>
-                    <!-- <a href="" class="link">Home</a> -->
-                    <a href="showApplicant.php">Notification </a>
-                    </span> 
-
+                    <i class="fa-solid fa-bell"></i>
+                   
+                    <a href="notification.php">Notification </a>
+                    </span> ';}
+                    if($_SESSION['user']==1){
+                      echo '
           <span class="sign-link">
-            <a href="post.html"><button class="post">Post Jobs</button></a></span>
+            <a href="post.php"><button class="post">Post Jobs</button></a></span>';
+          }
+
+            ?>
 
             <span class="profile-section">
               <img id="profile-picture" width='50px' height='50px' src='         
@@ -135,17 +145,20 @@ if($id!=''){
 
                 </i>
                   <i class="fa-solid fa-user"></i>
-                  <a href="eUprofile.php"> Profile   </a></span> 
+                  <a href="profile.php"> Profile   </a></span> 
                   
-                  
+                  <?php
+                  //if 1 employer 0 frelancer
+                  if($_SESSION['user']==1){
+                    echo '
 
                     <span class="sign-link">
-                        <i class="fa-solid fa-house"></i>
-                        <!-- <a href="" class="link">Home</a> -->
+                        <i class="fa-thin fa-list"></i>
+                        
                         <a href="pro page.php">my posts </a>
-                      </span> 
-                  
-               
+                      </span> ';
+                    }
+               ?>
 
 
             </div>
@@ -163,20 +176,35 @@ if($id!=''){
 
             <i class="fa-solid fa-house"></i>
             <!-- <a href="" class="link">Home</a> -->
-            <a href="index.html"><span>Home</span> </a>
+            <a href="index.php"><span>Home</span> </a>
           </li>
 
           
 
-         
+         <?php
+         if($_SESSION['user']==0){
 
+echo '
           <li>
             <i class="fa-solid fa-user-doctor"></i>
-            <a href="post.html"><span>Post Jobs</span></a>
-          </li>
+            <a href="job.php"><span>Jobs</span></a>
+          </li>';
+
+          echo '
+          <li>
+            <i class="fa-solid fa-user-doctor"></i>
+            <a href="saved.php"><span>Bookmarks</span></a>
+          </li>';
+        }else{
+         
+          
+
+        }
+
+?>
           <li>
             <i class="fa-regular fa-address-card"></i>
-            <a href="about.html"><span>About</span></a>
+            <a href="about.php"><span>About</span></a>
           </li>
         </ul>
         <div>
@@ -186,6 +214,7 @@ if($id!=''){
     </nav>
 
   </header>
+
   
 
 
@@ -377,5 +406,6 @@ if($id!=''){
 
 
 </body>
-<!-- <script src="app.js"></script> -->
+
+
 </html>

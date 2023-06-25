@@ -23,7 +23,7 @@ setcookie("userPassword",$password,time()+60*60*24*2);
   }
 
 if($result!=''){
-  echo $result;
+  // echo $result;
 } 
 else{
   //employer is 1 and freelancer is 0
@@ -41,7 +41,7 @@ else{
   else{
     if($_SESSION['user']==1){
       
-      header("Location:eIndex.php");
+      header("Location:Index.php");
       die;
     }
     else{
@@ -91,6 +91,7 @@ else{
     id="text"
     required
   />
+ 
   <br /><br />
   <?php if(!empty($_COOKIE['userPassword'])&&!empty($_COOKIE['userPassword'])){ ?>
   <input type="checkbox" name="Remember" checked value="Remember" />
@@ -112,7 +113,11 @@ else{
 <hr />
 <br />
 Don't have an account?<br /> <br /><a href="signup.php">Sign Up</a>
-
+<br /><br />
+<?php
+if($result!=''){
+  echo $result;
+} ?>
 <br /><br />
 </div>
   </body>
