@@ -50,62 +50,45 @@ $pass=substr($pass, -1);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="Style\forgot.css" rel="stylesheet" />
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
     <title>Password Recovery</title>
 </head>
 <body>
-<div class ="mid">
-    <form action="" method="post" name="register">
-    <br /> <br />
- 
-  <h2>Password recovery</h2>
+<div  class ="mid container d-flex justify-content-center">
+    <form style="width: 600px;" action="" method="post" name="register">
+    <h2 class="header mt-4">Password  Recovery</h2>
+
   <br /> 
   <div class="input-box">
-  <lable>Enter the last character of your old password</lable>
-  <br /> <br />
-  <input
-    type="password"
-    name="Password"
-    placeholder="&nbsp;&nbsp;Old Password"
-    minlength="1"
-    maxlength="1"
-    id="text"
-    required
-  />
+    <div class="form-floating">
+      <input   type="password" name="Password" class="form-control mx-2" id="" placeholder="" id="text" required minlength="1"maxlength="1">
+      <label for="floatingPassword">Enter the last character of your old password</label>
+    </div>
   </div>
-  <br /> <br />
 
-  <div class="input-box">
-  <label>Enter New Password</label>
-  <br /> <br />
-  <input
-    type="password"
-    name="newPassword"
-    placeholder="&nbsp;&nbsp;New Password"
-    minlength="8"
-    maxlength="15"
-    id="text"
-    required
-  />
+  <div class="input-box mt-3">
+    <div class="form-floating">
+      <input   type="password"  name="newPassword" class="form-control mx-2" id="" placeholder="" id="text" required minlength="8" maxlength="15">
+      <label for="floatingPassword">Enter New Password</label>
+    </div>
   </div>
-  <div class="input-box">
-  <br /><br />
-  <label>Verify New Password</label>
-  <br /> <br />
-  <input
-    type="password"
-    name="vPassword"
-    placeholder="&nbsp;&nbsp; Verify Password"
-    minlength="8"
-    maxlength="15"
-    id="text"
-    required
-  />
-  
-  <br /><br />
+
+  <div class="input-box mt-3">
+    <div class="form-floating">
+      <input   type="password" name="vPassword" class="form-control mx-2" id="" placeholder="" id="text" required minlength="8" maxlength="15">
+      <label for="floatingPassword">Verify New Password</label>
+    </div>
+  </div>
+
+
+
+
+ 
+ 
+
 
   <!-- <a href="index.html"> -->
-  <button type="submit" name="submit" id="Btn" >
+  <button style="width: 100%;" type="submit" name="submit" id="Btn" class="mt-3 btn btn-success btn-block">
     Submit
   </button>
   <br />
