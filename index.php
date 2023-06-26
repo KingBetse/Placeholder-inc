@@ -54,6 +54,7 @@ else{
   
 
   <!-- <link rel="stylesheet" href="heme.css"/> -->
+  <script src="app.js" defer></script>
 
   <script src="https://kit.fontawesome.com/6bed12e9d5.js" crossorigin="anonymous"></script>
 </head>
@@ -392,18 +393,23 @@ else{
     <div class="temp-css"></div>
     <div class="temp-css2"></div>
 
-    
+    <script>
+   
+    </script>
     <div class="recent-jobs">
     <?php
         if($_SESSION['user']==0){
-          echo '
+          echo ' 
       <h3>Recent Jobs</h3>
  
       <div class="test">
-        <i class="fa fa-arrow-left" onclick="rights()"></i>
-        <i class="fa fa-arrow-right" onclick="lefts()"></i>
+        <i class="fa fa-arrow-left" onclick="lefts()"></i>
+        <i class="fa fa-arrow-right" onclick="rights()"></i>
         <div class="job-container">
-      
+
+
+
+          
         ';
       }
         ?>
@@ -412,6 +418,7 @@ else{
 
 if($_SESSION["user"]==0){        
             if($posts){
+             
           foreach($posts as $row){
               $user= new User();
               $row_user=  $user->get_user($row["user_id"]);
@@ -441,16 +448,14 @@ if($_SESSION["user"]==0){
       }
       
 
-echo '
-      </div>';
 
-
+echo'</div>';
 
       ?>
-    </div>
 
 
 
+    </div>;
 
 
   </section>
@@ -591,7 +596,7 @@ echo '
       </div>
     </div>
   </footer>
-  <script src="app.js"></script>
+  
   <script src="home.js"></script>
 </body>
 

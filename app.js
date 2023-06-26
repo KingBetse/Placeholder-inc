@@ -10,19 +10,41 @@ button.addEventListener("click", (c)=>{
 
 
 // for scrolling
-function lefts(){
-  let z = document.querySelector(".job-container")
-  z.scrollBy(350,0);
 
-}
+ var lefts = function() {
+  var z = document.querySelectorAll(".job-container")
+  if (z.length > 1){
+    z[1].scrollBy(-300, 0)
+  }
+  // Do something
+};
+
 function rights(){
-  let z = document.querySelector(".job-container")
-  z.scrollBy(-350,0);
+  // console.log("left")
+  var z = document.querySelectorAll(".job-container")
+  if (z.length > 1){
+    z[1].scrollBy(300, 0)
+  }
+  // console.log(z)
+  // const someChild = document.createElement("div")
+  // someChild.className = "mychild";
+  // someChild.style.width = "1000px";
+  // someChild.style.height = "1000px";
+  // someChild.style.position = "absolute"
+  // someChild.style.backgroundColor = "black"
+  // z.appendChild(someChild)
+  // console.log(z)
 
 }
 
 
+function searchclicked(){
 
+  console.log("test")
+document.querySelector(".s-b").classList.toggle("close");
+
+
+}
 
 // for logout 
 let x =document.querySelector("#profile-picture");
@@ -32,3 +54,5 @@ x.addEventListener("click", (e)=>{
   xParent.classList.toggle("vis");}
   )
 
+ 
+  

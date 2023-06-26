@@ -372,3 +372,10 @@
     display: none;
   }
 }
+.s-b{
+  visibility: visible;
+}
+
+.s-b.close{
+  visibility: hidden;
+}

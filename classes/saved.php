@@ -40,7 +40,7 @@ END;
 
 
 if($result){
-  header("Location:../saved.html");
+  header("Location:../saved.php");
   die;
 }
 
