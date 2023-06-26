@@ -43,10 +43,10 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
           $result=$DB->read($query);
           if($result){ 
           $row=$result[0];
-          if($password==$row['password']){
+          
             $_SESSION['username']= $row['first_name'];
             $_SESSION['photo']= $row['image'];
-        }}
+        }
 
 
     

@@ -13,7 +13,7 @@ $po=$DB->read($query2);
 if($po){
     foreach($po as $row){
 
-        $vac=$row['vacacies'];
+        $vac=$row['vacancies'];
     }
 }
 $result=$apply->show($post_id);
@@ -24,25 +24,30 @@ if($result){
     foreach($result as $row){
 
     $r=$user->get_user($row['user_id']);
-    print_r($r);
+
     $description=$row['description'];
     
     $query="UPDATE apply
     SET accepted = '$change'
     WHERE description = '$description' AND post_id = '$post_id'";
 $DB->insert($query);
-$var=-1;
-    if($var==0){
+$vac=$vac-1;
+    if($vac==0){
          echo "the vacancies is full ";
          $query3="DELETE FROM post WHERE post_id= '$post_id'";
          $DB->insert($query3);        }
+else{
+    $queryy="UPDATE post
+    SET vacancies = '$vac'
+    WHERE post_id = '$post_id'";
+    
+    $DB->insert($queryy);
+}
 
-$queryy="UPDATE post
-SET vacacies = '$var'
-WHERE post_id = '$post_id'";
 
-$DB->insert($queryy);
 
+header("Location:showApplicant.php?id=$post_id.php");
+    die;
 
 }
 }

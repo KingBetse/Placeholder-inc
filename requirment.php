@@ -13,7 +13,7 @@ if($result){
     
 $ownPost_id=$row['post_id'];
      if($post_id === $ownPost_id ){
-      header("Location:job.html");
+      header("Location:job.php");
       die;
 
      }}
@@ -22,47 +22,48 @@ $ownPost_id=$row['post_id'];
       if($id!=''){
     if($_SERVER['REQUEST_METHOD']=='POST'){
 
-    //   if (isset($_FILES['cv']) && $_FILES['cv']['error'] == 0) {
-    //     $upload_dir = 'uploads/CV/'; // Specify the upload directory
-    //     $file_name = basename($_FILES['cv']['name']); // Get the file name
-    //     $target_file = $upload_dir . $file_name; // Set the target file path
+      if (isset($_FILES['cv']) && $_FILES['cv']['error'] == 0) {
+        $upload_dir = 'uploads/CV/'; // Specify the upload directory
+        $file_name = basename($_FILES['cv']['name']); // Get the file name
+        $target_file = $upload_dir . $file_name; // Set the target file path
 
-    //     // Check if the file is a PDF
-    //     $file_type = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-    //     if ($file_type == 'pdf') {
-    //         // Move the uploaded file to the target directory
-    //         if (move_uploaded_file($_FILES['cv']['tmp_name'], $target_file)) {
-    //           $sql="INSERT INTO apply(CV) VALUES('$target_file')";
-    //           $DB= new Database();
-    //       $DB->insert($sql);    
+        // Check if the file is a PDF
+        $file_type = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+        if ($file_type == 'pdf') {
+            // Move the uploaded file to the target directory
+            if (move_uploaded_file($_FILES['cv']['tmp_name'], $target_file)) {
+              $sql="INSERT INTO apply(CV) VALUES('$target_file')";
+              $DB= new Database();
+          $DB->insert($sql);    
           
-    //             echo "Your CV has been uploaded successfully.";
-    //         } else {
-    //             echo "An error occurred while uploading your CV.";
-    //             header("'Location:requirment.php?id=. echo $post_id;'");
-    //         die;
-    //         }
-    //     } else {
-    //         echo "Only PDF files are allowed.";
-    //         header("'Location:requirment.php?id=. echo $post_id;'");
-    //         die;
-    //     }
-    // } else {
-    //     echo "No file was uploaded or there was an error during the upload.";
-    //     header("'Location:requirment.php?id=. echo $post_id;'");
-    //     die;
-    // }
+                echo "Your CV has been uploaded successfully.";
+                header("Location:job.php");
+                die;
+            } else {
+                echo "An error occurred while uploading your CV.";
+                header("'Location:requirment.php?id=. echo $post_id;'");
+            die;
+            }
+        } else {
+            echo "Only PDF files are allowed.";
+            header("'Location:requirment.php?id=. echo $post_id;'");
+            die;
+        }
+    } else {
+        echo "No file was uploaded or there was an error during the upload.";
+        header("'Location:requirment.php?id=. echo $post_id;'");
+        die;
+    }
    
     
     $appply->apply($_POST);
-    // header("Location:job.html");
-    // die;
+    
     }
   
     }
     else{
       unset($_SESSION['placeholder_userid']);
-        header("Location:login.html");
+        header("Location:login.php");
       die;
     }
      
@@ -93,7 +94,7 @@ $ownPost_id=$row['post_id'];
         <div class="sign">
           <!-- <span class="sign-link">
                   <i class="fa-solid fa-right-to-bracket"></i>
-                  <a href="login.html">Log out</a></span> -->
+                  <a href="login.php">Log out</a></span> -->
                   <span class="sign-link">
                     <i class="fa-solid fa-house"></i>
                     <!-- <a href="" class="link">Home</a> -->
@@ -172,7 +173,7 @@ $ownPost_id=$row['post_id'];
 
             <i class="fa-solid fa-house"></i>
             <!-- <a href="" class="link">Home</a> -->
-            <a href="index.html"><span>Home</span> </a>
+            <a href="index.php"><span>Home</span> </a>
           </li>
 
           
@@ -181,11 +182,11 @@ $ownPost_id=$row['post_id'];
 
           <li>
             <i class="fa-solid fa-user-doctor"></i>
-            <a href="job.html"><span>Jobs</span></a>
+            <a href="job.php"><span>Jobs</span></a>
           </li>
           <li>
             <i class="fa-regular fa-address-card"></i>
-            <a href="about.html"><span>About</span></a>
+            <a href="about.php"><span>About</span></a>
           </li>
         </ul>
         <div>
@@ -215,7 +216,7 @@ $ownPost_id=$row['post_id'];
   
   <br /><br />
 
-  <!-- <a href="index.html"> -->
+  <!-- <a href="index.php"> -->
   <button type="submit">
     submit
   </button>
@@ -238,33 +239,33 @@ $ownPost_id=$row['post_id'];
           <div class="about">
             <p>
               <h3 id="about">FAQ</h3>
-              <p><a href="About.html">How do i register?</a></p>
-              <p><a href="About.html">How to apply for a job?</a></p>
-              <p><a href="About.html">How do I reset my password?</a></p> 
-              <p><a href="About.html">how do i edit my cv?</a></p>
-              <p><a href="About.html">how do i get notification?</a></p>
-              <p><a href="About.html">what makes this platform different?</a></p>
+              <p><a href="About.php">How do i register?</a></p>
+              <p><a href="About.php">How to apply for a job?</a></p>
+              <p><a href="About.php">How do I reset my password?</a></p> 
+              <p><a href="About.php">how do i edit my cv?</a></p>
+              <p><a href="About.php">how do i get notification?</a></p>
+              <p><a href="About.php">what makes this platform different?</a></p>
             </p>
             <hr class="hid">
           </div>
             <div class="about">
               <p>
                 <h3 id="about">About</h3>
-                <p><a href="About.html">About us</a></p>
-                <p><a href="About.html">how it works</a></p>
-                <p><a href="About.html">Careers</a></p>
-                <p><a href="About.html">accessibility</a></p>
-                <p><a href="About.html">advertising</a></p>
+                <p><a href="About.php">About us</a></p>
+                <p><a href="About.php">how it works</a></p>
+                <p><a href="About.php">Careers</a></p>
+                <p><a href="About.php">accessibility</a></p>
+                <p><a href="About.php">advertising</a></p>
               </p>
               <hr class="hid">
             </div>
             <div class="terms">
               <p>
                 <h3 id="terms">Terms</h3>
-                <p><a href="terms.html">Privacy Policy</a></p>
-                <p><a href="terms.html"> Terms and Conditions</a></p>
-                <p><a href="terms.html"> Copyright Policy</a></p>
-                <p><a href="terms.html"> Code of Conduct</a></p>
+                <p><a href="terms.php">Privacy Policy</a></p>
+                <p><a href="terms.php"> Terms and Conditions</a></p>
+                <p><a href="terms.php"> Copyright Policy</a></p>
+                <p><a href="terms.php"> Code of Conduct</a></p>
                 <!-- <p><a href=""><font color="azure"> Fees and Charges</font></a></p> -->
             </p>
             <hr class="hid">
@@ -273,9 +274,9 @@ $ownPost_id=$row['post_id'];
             <div class="about">
               <p>
                 <h3 id="about">contact us</h3>
-                <p><a href="About.html">aastugroup1@gmail.com</a></p>
-                <p><a href="About.html">+251953101912</a></p>
-                <p><a href="About.html"> AASTU, Tulu Dimtu, Addis Ababa, Ethiopia</a></p>
+                <p><a href="About.php">aastugroup1@gmail.com</a></p>
+                <p><a href="About.php">+251953101912</a></p>
+                <p><a href="About.php"> AASTU, Tulu Dimtu, Addis Ababa, Ethiopia</a></p>
               </p>
               <hr class="hid">
             </div>
@@ -286,30 +287,30 @@ $ownPost_id=$row['post_id'];
           <div class="about">
             <p>
               <h3 id="about">Job seekers</h3>
-              <p><a href="About.html">Find Jobs</a></p>
-              <p><a href="About.html">Register</a></p>
-              <p><a href="About.html">post CV</a></p>
-              <p><a href="About.html">Job Alerts</a></p>
+              <p><a href="About.php">Find Jobs</a></p>
+              <p><a href="About.php">Register</a></p>
+              <p><a href="About.php">post CV</a></p>
+              <p><a href="About.php">Job Alerts</a></p>
             </p>
             <hr class="hid">
           </div>
           <div class="about">
             <p>
               <h3 id="about">Employers</h3>
-              <p><a href="About.html">Log in</a></p>
-              <p><a href="About.html">Register</a></p>
-              <p><a href="About.html">post Jobs</a></p>
-              <p><a href="About.html">services</a></p>
+              <p><a href="About.php">Log in</a></p>
+              <p><a href="About.php">Register</a></p>
+              <p><a href="About.php">post Jobs</a></p>
+              <p><a href="About.php">services</a></p>
             </p>
             <hr class="hid">
           </div>
             <div class="terms">
               <p>
                 <h3 id="terms">work with us</h3>
-                <p><a href="terms.html">Contact Admin</a></p>
-                <p><a href="terms.html">Become partner</a></p>
-                <p><a href="terms.html"> Explor</a></p>
-                <p><a href="terms.html"> Code of Conduct</a></p>
+                <p><a href="terms.php">Contact Admin</a></p>
+                <p><a href="terms.php">Become partner</a></p>
+                <p><a href="terms.php"> Explor</a></p>
+                <p><a href="terms.php"> Code of Conduct</a></p>
                 <!-- <p><a href=""><font color="azure"> Fees and Charges</font></a></p> -->
             </p>
             <hr class="hid">
@@ -318,10 +319,10 @@ $ownPost_id=$row['post_id'];
             <div class="about">
               <p>
                 <h3 id="about">useful links</h3>
-                <p><a href="About.html">ehio job</a></p>
-                <p><a href="About.html">alibaba</a></p>
-                <p><a href="About.html">freelancers</a></p>
-                <p><a href="About.html">remote work</a></p>
+                <p><a href="About.php">ehio job</a></p>
+                <p><a href="About.php">alibaba</a></p>
+                <p><a href="About.php">freelancers</a></p>
+                <p><a href="About.php">remote work</a></p>
               </p>
               <hr class="hid">
             </div>

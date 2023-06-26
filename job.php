@@ -73,6 +73,14 @@ else{
             <!-- <span class="sign-link">
                     <i class="fa-solid fa-right-to-bracket"></i>
                     <a href="login.php">Log out</a></span> -->
+
+                     <!--Search form -->
+                  <span>
+                    <form action="job.php" method="POST" class="search">
+    <input type="text" name="search" placeholder="Search">
+    <button type="submit" name="submit-search">Search</button>
+                </form>
+              </span>
                     <?php
                     //if 1 employer 0 frelancer
                     if($_SESSION['user']==0){
@@ -87,8 +95,10 @@ else{
             <span class="sign-link">
               <a href="post.php"><button class="post">Post Jobs</button></a></span>';
             }
-  
-              ?>
+
+              ?>  
+             
+              
   
               <span class="profile-section">
                 <img id="profile-picture" width='50px' height='50px' src='         
@@ -279,13 +289,38 @@ else{
 
         
         // Display records
- if($posts){
-foreach($posts as $row){
-    $user= new User();
-    $row_user=  $user->get_user($row['user_id']);
-      include("posts.php");
-  }
- }
+
+ //search 
+
+
+ if (isset($_POST['submit-search'])) {
+  $DB= new Database();
+    $search = $_POST['search'];
+    $sql = "SELECT * FROM post WHERE job_title LIKE '$search' OR job_type LIKE '$search'";
+
+    $result = $DB->read($sql);
+    if($result){
+
+      foreach($result as $row){
+          $user= new User();
+          $row_user=  $user->get_user($row['user_id']);
+            include("posts.php");
+        }
+       }
+ 
+     else {
+        echo "There are no results matching your search!";
+    }
+}
+else{
+  if($posts){
+    foreach($posts as $row){
+        $user= new User();
+        $row_user=  $user->get_user($row['user_id']);
+          include("posts.php");
+      }
+     }
+}
 
  ?>
   

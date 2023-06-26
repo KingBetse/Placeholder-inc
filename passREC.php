@@ -29,7 +29,7 @@ $pass=substr($pass, -1);
         $DB->insert($query);
         echo"Reset complete you can use your new password";
         $_SESSION['placeholder_userid']=NULL;
-        header("Location:login.html");
+        header("Location:login.php");
             die;}
             else{
                 echo"the password is different";

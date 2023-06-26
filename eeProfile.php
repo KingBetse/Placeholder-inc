@@ -43,10 +43,10 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
           $result=$DB->read($query);
           if($result){ 
           $row=$result[0];
-          if($password==$row['password']){
+          
             $_SESSION['username']= $row['first_name'];
             $_SESSION['photo']= $row['image'];
-        }}
+        }
 
 
     
@@ -60,7 +60,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     else{
       return $error;
     }
-    header("Location:eIndex.php");
+    header("Location:index.php");
     die;
   }else{
     unset($_SESSION['placeholder_userid']);
@@ -95,8 +95,7 @@ else{
   </head>
   
   <body>
- 
-
+  
   <header>
     <nav class="nav-bar" id="nav">
       <div class="logo-and-search-bar">
@@ -249,45 +248,32 @@ echo '
 
   </header>
 
+
   
   
 
 
   
 <section class="container">
-    <?php
-    $DB=new Database();
-    $query="select * from users where user_id='$id' limit 1";
-    $result=$DB->read($query);
-    
-    if($result){
-        foreach($result as $row){
-            $firstname=$row['first_name'];
-            $lastname=$row['last_name'];
-            $phone_no=$row['phone_number'];
-            $date=$row['date'];
-            $country=$row['country'];
-            ?>
       <h3>Profile</h3>
   <form action="#" class="form" method="post" enctype="multipart/form-data">
     <div class="input-box">
-        
       <label>First Name</label>
-      <input type="text" name='firstName'placeholder="Enter first name"  value="<?php echo $firstname; ?>"/>
+      <input type="text" name='firstName'placeholder="Enter first name" required value=""/>
     </div>
     <div class="input-box">
       <label>Last Name</label>
-      <input type="text" name='lastName' placeholder="Enter last name" value=<?php  echo $lastname ?>/>
+      <input type="text" name='lastName' placeholder="Enter last name" required />
     </div>
     
  
       <div class="input-box">
         <label>Phone Number</label>
-        <input type="number" name='phoneNum' placeholder="Enter phone number" value= <?php echo $phone_no ?> />
+        <input type="number" name='phoneNum' placeholder="Enter phone number" required />
       </div>
       <div class="input-box">
         <label>Birth Date</label>
-        <input type="date"  name='birthDate' placeholder="Enter birth date" value= <?php echo $date ?>  />
+        <input type="date"  name='birthDate' placeholder="Enter birth date" required />
       </div>
     
     <div class="gender-box">
@@ -308,7 +294,7 @@ echo '
     
 
         <div class="select-box">
-          <select name="country" value= <?php echo $country ?> >
+          <select name="country">
             <option hidden>Country</option>
             <option>Ethiopia</option>
             <option>America</option>
@@ -324,11 +310,9 @@ echo '
       </div>
 
     </div>
-<?php
-}
   
-}?>
-     
+      
+       
 
     <button>Submit</button>
   </form>
@@ -454,3 +438,4 @@ echo '
 </footer>
 <script src="app.js"></script>
   </body>
+</html>

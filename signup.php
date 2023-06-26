@@ -17,7 +17,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
       
       setcookie("userEmail","",time()-(60*60*24*2));
       setcookie("userPassword","",time()-(60*60*24*2));
-      header("Location:login.html");
+      header("Location:login.php");
     die;
     }}
     else{

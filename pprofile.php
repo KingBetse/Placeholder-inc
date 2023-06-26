@@ -60,7 +60,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     else{
       return $error;
     }
-    header("Location:eIndex.php");
+    header("Location:index.php");
     die;
   }else{
     unset($_SESSION['placeholder_userid']);
@@ -96,131 +96,156 @@ else{
   
   <body>
   
-  <header>
-    <nav class="nav-bar" id="nav">
-      <div class="logo-and-search-bar">
-        <div class="logo">
-          <div class="logo-image">
-            <a href=""><img width="20px" height="10px" src="images/logo.jpg" alt="logo" /></a>
+    <header>
+      <nav class="nav-bar" id="nav">
+        <div class="logo-and-search-bar">
+          <div class="logo">
+            <div class="logo-image">
+              <a href=""><img width="20px" height="10px" src="images/logo.jpg" alt="logo" /></a>
+            </div>
+            <!-- <div class="logo-text"><span>placeholder</span></div> -->
           </div>
-          <!-- <div class="logo-text"><span>placeholder</span></div> -->
-        </div>
-        <div class="sign">
-          <!-- <span class="sign-link">
-                  <i class="fa-solid fa-right-to-bracket"></i>
-                  <a href="login.php">Log out</a></span> -->
-                  <span class="sign-link">
-                    <i class="fa-solid fa-house"></i>
-                    <!-- <a href="" class="link">Home</a> -->
-                    <a href="showApplicant.php">Notification </a>
-                    </span> 
-
-          <span class="sign-link">
-            <a href="post.php"><button class="post">Post Jobs</button></a></span>
-
-            <span class="profile-section">
-              <img id="profile-picture" width='50px' height='50px' src='         
-              <?php 
-              if ($_SESSION["photo"]!=""){
-                echo$_SESSION["photo"];
-              }
-              else{
-                echo "img/juice wrld.jpg";
-                
-              }?>
-              ' title='test' alt="profile">
+          <div class="sign">
+            <!-- <span class="sign-link">
+                    <i class="fa-solid fa-right-to-bracket"></i>
+                    <a href="login.php">Log out</a></span> -->
+                    <?php
+                    //if 1 employer 0 frelancer
+                    if($_SESSION['user']==0){
+  echo '
+                    <span class="sign-link">
+                      <i class="fa-solid fa-house"></i>
+                      <!-- <a href="" class="link">Home</a> -->
+                      <a href="notification.php">Notification </a>
+                      </span> ';}
+                      if($_SESSION['user']==1){
+                        echo '
+            <span class="sign-link">
+              <a href="post.php"><button class="post">Post Jobs</button></a></span>';
+            }
   
-              <div class="more">
+              ?>
+  
+              <span class="profile-section">
+                <img id="profile-picture" width='50px' height='50px' src='         
+                <?php 
+                if ($_SESSION["photo"]!=""){
+                  echo$_SESSION["photo"];
+                }
+                else{
+                  echo "img/juice wrld.jpg";
+                  
+                }?>
+                ' title='test' alt="profile">
+    
+                <div class="more">
+                  <span class="sign-link">
+                    <img id="profile-picture" width='50px' height='50px' src='
+                                        
+                      <?php 
+                      if ($_SESSION["photo"]!=""){
+                        echo$_SESSION["photo"];
+                      }
+                      else{
+                        echo "img/juice wrld.jpg";
+                        
+                      }?>
+                      
+                      ' title='test' alt="profile">
+                  </span>
                 <span class="sign-link">
-                  <img id="profile-picture" width='50px' height='50px' src='
-                                      
-                    <?php 
-                    if ($_SESSION["photo"]!=""){
-                      echo$_SESSION["photo"];
+                  <?php
+                    if($_SESSION['username']!=''  ){
+                    echo $_SESSION['username'];
                     }
                     else{
-                      echo "img/juice wrld.jpg";
-                      
-                    }?>
-                    
-                    ' title='test' alt="profile">
-                </span>
-              <span class="sign-link">
-                <?php
-                  if($_SESSION['username']!=''  ){
-                  echo $_SESSION['username'];
-                  }
-                  else{
-                    echo "test";
-                  }
+                      echo "test";
+                    }
+    
+                     ?>
   
-                   ?>
-
-              </span>
-
-
-
-              <span class="sign-link">
-                <i class="fa-solid fa-right-to-bracket"></i>
-                <a href="logout.php">log out</a></span>
-
-
-              <span class="sign-link">
-                <!-- <i class="fa-solid fa-left-to-bracket"> -->
-
-                </i>
-                  <i class="fa-solid fa-user"></i>
-                  <a href="eUprofile.php"> Profile   </a></span> 
-                  
-                  
-
-                    <span class="sign-link">
-                        <i class="fa-solid fa-house"></i>
-                        <!-- <a href="" class="link">Home</a> -->
-                        <a href="pro page.php">my posts </a>
-                      </span> 
-                  
-               
-
-
-            </div>
-
-          </span>
+                </span>
+  
+  
+  
+                <span class="sign-link">
+                  <i class="fa-solid fa-right-to-bracket"></i>
+                  <a href="logout.php">log out</a></span>
+  
+  
+                <span class="sign-link">
+                  <!-- <i class="fa-solid fa-left-to-bracket"> -->
+  
+                  </i>
+                    <i class="fa-solid fa-user"></i>
+                    <a href="profile.php"> Profile   </a></span> 
+                    
+                    <?php
+                    //if 1 employer 0 frelancer
+                    if($_SESSION['user']==1){
+                      echo '
+  
+                      <span class="sign-link">
+                          <i class="fa-solid fa-house"></i>
+                          <!-- <a href="" class="link">Home</a> -->
+                          <a href="pro page.php">my posts </a>
+                        </span> ';
+                      }
+                 ?>
+  
+  
+              </div>
+  
+            </span>
+          </div>
+  
         </div>
-
-      </div>
-      <div class="nav-links ">
-        <ul>
-          
-
-
-          <li>
-
-            <i class="fa-solid fa-house"></i>
-            <!-- <a href="" class="link">Home</a> -->
-            <a href="index.php"><span>Home</span> </a>
-          </li>
-
-          
-
-         
-
-          <li>
-            <i class="fa-solid fa-user-doctor"></i>
-            <a href="post.php"><span>Post Jobs</span></a>
-          </li>
-          <li>
-            <i class="fa-regular fa-address-card"></i>
-            <a href="about.php"><span>About</span></a>
-          </li>
-        </ul>
-        <div>
-          <i id="colapse" class="fas fa-layer-groupfas fa-layer-group">colapse</i>
-          <!-- <button id="colapse">col</button> -->
-        </div>
-    </nav>
-
-  </header>
+        <div class="nav-links ">
+          <ul>
+            
+  
+  
+            <li>
+  
+              <i class="fa-solid fa-house"></i>
+              <!-- <a href="" class="link">Home</a> -->
+              <a href="index.php"><span>Home</span> </a>
+            </li>
+  
+            
+  
+           <?php
+           if($_SESSION['user']==0){
+  
+  echo '
+            <li>
+              <i class="fa-solid fa-user-doctor"></i>
+              <a href="job.php"><span>Jobs</span></a>
+            </li>';
+  
+            echo '
+            <li>
+              <i class="fa-thin fa-star"></i>
+              <a href="saved.php"><span>Bookmarks</span></a>
+            </li>';
+          }else{
+            
+  
+          }
+  
+  ?>
+            <li>
+              <i class="fa-regular fa-address-card"></i>
+              <a href="about.php"><span>About</span></a>
+            </li>
+          </ul>
+          <div>
+            <i id="colapse" class="fas fa-layer-groupfas fa-layer-group">colapse</i>
+            <!-- <button id="colapse">col</button> -->
+          </div>
+      </nav>
+  
+    </header>
   
   
 
@@ -263,7 +288,15 @@ else{
         </div>
        
       </div>
-    
+      <div class="column">
+        <div class="select-box">
+          <select name="education">
+            <option hidden>Education</option>
+            <option >Highschool</option>
+            <option >Undergraduate</option>
+            <option >Postgraduate</option>
+          </select>
+        </div>
 
         <div class="select-box">
           <select name="country">
@@ -282,7 +315,38 @@ else{
       </div>
 
     </div>
-  
+    <label>Skill</label>
+  <br/>
+      <div class="column">
+     <label>Frontend</label>
+     <input type="checkbox" name="skill[]" value="Frontend">
+
+      <label>Backend</label>
+    <input type="checkbox" name="skill[]" value="Backend">
+
+    <label>Fullstack</label>
+    <input type="checkbox" name="skill[]" value="Fullstack">
+
+    <label>Business</label>
+   <input type="checkbox" name="skill[]" value="Business">
+
+    <label>Tutoring</label>
+    <input type="checkbox" name="skill[]" value="Tutoring">
+
+    <label>eComerse</label>
+    <input type="checkbox" name="skill[]" value="eCommerse">
+
+    <label>Graphic Design</label>
+   <input type="checkbox" name="skill[]" value="Graphic Design">
+
+    <label>Translator</label>
+    <input type="checkbox" name="skill[]" value="Translator">
+
+    <label>Another Job</label>
+    <input type="checkbox" name="skill[]" value="Another Job">
+
+    
+    </div>
       
        
 
