@@ -77,6 +77,7 @@ $ownPost_id=$row['post_id'];
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>reqirment</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
     <link rel="stylesheet" href="styles/style.css" />
 
 </head>
@@ -198,28 +199,27 @@ $ownPost_id=$row['post_id'];
   </header>
     
 
-    <div class ="mid">
-    <form action="" method="post" name="register" enctype="multipart/form-data">
-    
-   
+    <div class =" d-flex justify-content-center">
+    <form style="width: 80%;" action="" method="post" name="register" enctype="multipart/form-data" class="cotainer ">
     <br /> <br />
-    <div class="CV">
-        <h3>uplode your CV</h3>
-        <input type="file" name="cv" placeholder="" />
-      </div>
-  <br /> <br />
- <lable>Why do you think you are eligiable to apply for this job</lable>
-  <br />   <br /> 
-  <textarea name="apply" placeholder="write here"  rows="6" cols="40" required></textarea>
-  <br /><br />
 
-  
-  <br /><br />
+    <div class="CV container">
+      <label for="formFileMd" class="form-label">uplode your CV</label>
+      <input name="cv" class="form-control form-control" id="formFileMd" type="file">
+    </div>
+
+    <div class="form-floating container mt-3">
+      <textarea  name="apply" class="form-control "  id="floatingTextarea2" style="height: 150px" rows="6" cols="40" required></textarea>
+      <label for="floatingTextarea2">Why do you think you are eligiable to apply for this job?</label>
+    </div> 
 
   <!-- <a href="index.php"> -->
-  <button type="submit">
+  <button type="submit" class="mt-3 btn btn-outline-success mb-4" style="width: 200px;">
     submit
   </button>
+  <a href="/placeholder-inc/job.php" class="mt-3 btn btn-outline-warning  mb-4" style="width: 200px;">
+    cancel
+  </a>
   <br />
 </form>
 </div>
